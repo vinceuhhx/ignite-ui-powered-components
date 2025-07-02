@@ -469,17 +469,23 @@ const Index = () => {
                 <CardDescription>Basic card with border and elevated card with shadow</CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                  <Card>
-                    <CardContent>
-                      <p className="p-4">Default card with border</p>
-                    </CardContent>
-                  </Card>
-                  <Card shadow>
-                    <CardContent>
-                      <p className="p-4">Raised card with shadow</p>
-                    </CardContent>
-                  </Card>
+                <div className="space-y-6 mb-6">
+                  <div>
+                    <h6 className="text-sm font-medium mb-3 text-muted-foreground">Default Card</h6>
+                    <Card className="max-w-sm">
+                      <CardContent>
+                        <p className="p-4">Default card with border</p>
+                      </CardContent>
+                    </Card>
+                  </div>
+                  <div>
+                    <h6 className="text-sm font-medium mb-3 text-muted-foreground">Raised Card</h6>
+                    <Card shadow className="max-w-sm">
+                      <CardContent>
+                        <p className="p-4">Raised card with shadow</p>
+                      </CardContent>
+                    </Card>
+                  </div>
                 </div>
                 <div className="rounded-md bg-muted p-4 relative">
                   <code className="text-sm whitespace-pre">
@@ -516,34 +522,43 @@ const Index = () => {
                 <CardDescription>Cards with headers, content, and footers</CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
-                  <Card>
-                    <CardHeader>
-                      <h5 className="font-semibold">Card Header</h5>
-                    </CardHeader>
-                    <CardContent>
-                      <p>Card body content goes here</p>
-                    </CardContent>
-                  </Card>
-                  <Card>
-                    <CardContent>
-                      <p>Card body content</p>
-                    </CardContent>
-                    <CardFooter>
-                      <p>Card footer text</p>
-                    </CardFooter>
-                  </Card>
-                  <Card>
-                    <CardHeader>
-                      <h5 className="font-semibold">Complete Card</h5>
-                    </CardHeader>
-                    <CardContent>
-                      <p>Card body with header and footer</p>
-                    </CardContent>
-                    <CardFooter>
-                      <p>Footer information</p>
-                    </CardFooter>
-                  </Card>
+                <div className="space-y-6 mb-6">
+                  <div>
+                    <h6 className="text-sm font-medium mb-3 text-muted-foreground">Card with Header</h6>
+                    <Card className="max-w-sm">
+                      <CardHeader>
+                        <h5 className="font-semibold">Card Header</h5>
+                      </CardHeader>
+                      <CardContent>
+                        <p>Card body content goes here</p>
+                      </CardContent>
+                    </Card>
+                  </div>
+                  <div>
+                    <h6 className="text-sm font-medium mb-3 text-muted-foreground">Card with Footer</h6>
+                    <Card className="max-w-sm">
+                      <CardContent>
+                        <p>Card body content</p>
+                      </CardContent>
+                      <CardFooter>
+                        <p>Card footer text</p>
+                      </CardFooter>
+                    </Card>
+                  </div>
+                  <div>
+                    <h6 className="text-sm font-medium mb-3 text-muted-foreground">Complete Card</h6>
+                    <Card className="max-w-sm">
+                      <CardHeader>
+                        <h5 className="font-semibold">Complete Card</h5>
+                      </CardHeader>
+                      <CardContent>
+                        <p>Card body with header and footer</p>
+                      </CardContent>
+                      <CardFooter>
+                        <p>Footer information</p>
+                      </CardFooter>
+                    </Card>
+                  </div>
                 </div>
                 <div className="rounded-md bg-muted p-4 relative">
                   <code className="text-sm whitespace-pre">
