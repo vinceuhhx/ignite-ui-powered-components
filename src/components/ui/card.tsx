@@ -5,13 +5,27 @@ import { cn } from "@/lib/utils"
 const Card = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement> & { shadow?: boolean }
->(({ className, shadow, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn("card", shadow && "shadow", className)}
-    {...props}
-  />
-))
+>(({ className, shadow, ...props }, ref) => {
+  // Load legacy CSS when component mounts
+  React.useEffect(() => {
+    const cssUrl = "https://cdn.sdworx.com/ignite/styling/legacy/webkit-7.6.2.css";
+    const existingLink = document.querySelector(`link[href="${cssUrl}"]`);
+    if (!existingLink) {
+      const link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.href = cssUrl;
+      document.head.appendChild(link);
+    }
+  }, []);
+
+  return (
+    <div
+      ref={ref}
+      className={cn("card", shadow && "shadow", className)}
+      {...props}
+    />
+  );
+})
 Card.displayName = "Card"
 
 const CardHeader = React.forwardRef<

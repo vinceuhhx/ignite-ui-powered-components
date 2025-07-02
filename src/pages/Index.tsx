@@ -519,29 +519,29 @@ const Index = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
                   <Card>
                     <CardHeader>
-                      <h5>Card Header</h5>
+                      <h5 className="font-semibold">Card Header</h5>
                     </CardHeader>
                     <CardContent>
-                      Card body content goes here
+                      <p>Card body content goes here</p>
                     </CardContent>
                   </Card>
                   <Card>
                     <CardContent>
-                      Card body content
+                      <p>Card body content</p>
                     </CardContent>
                     <CardFooter>
-                      Card footer text
+                      <p>Card footer text</p>
                     </CardFooter>
                   </Card>
                   <Card>
                     <CardHeader>
-                      <h5>Complete Card</h5>
+                      <h5 className="font-semibold">Complete Card</h5>
                     </CardHeader>
                     <CardContent>
-                      Card body with header and footer
+                      <p>Card body with header and footer</p>
                     </CardContent>
                     <CardFooter>
-                      Footer information
+                      <p>Footer information</p>
                     </CardFooter>
                   </Card>
                 </div>
