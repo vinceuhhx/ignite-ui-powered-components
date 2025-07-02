@@ -100,10 +100,10 @@ const Index = () => {
       {/* Installation Section */}
       <section id="installation" className="container py-8 md:py-12">
         <div className="mx-auto max-w-[980px]">
-          <h2 className="text-2xl font-bold leading-tight tracking-tighter md:text-3xl mb-4">
+          <h2 className="text-2xl font-bold leading-tight tracking-tighter md:text-3xl mb-8">
             Installation
           </h2>
-          <div className="grid gap-6 lg:grid-cols-2">
+          <div className="space-y-6">
             <Card>
               <CardHeader>
                 <CardTitle>Install Package</CardTitle>
@@ -113,18 +113,19 @@ const Index = () => {
               </CardHeader>
               <CardContent>
                 <div className="rounded-md bg-muted p-4 relative">
-                  <code className="text-sm">npm install @sdworx/marketing-ui</code>
+                  <code className="text-sm font-mono">npm install @sdworx/marketing-ui</code>
                   <Button
                     variant="ghost"
                     size="icon"
-                    className="absolute right-2 top-2 h-6 w-6"
+                    className="absolute right-2 top-2 h-8 w-8"
                     onClick={() => copyToClipboard("npm install @sdworx/marketing-ui")}
                   >
-                    <Copy className="h-3 w-3" />
+                    <Copy className="h-4 w-4" />
                   </Button>
                 </div>
               </CardContent>
             </Card>
+            
             <Card>
               <CardHeader>
                 <CardTitle>Import Component</CardTitle>
@@ -134,16 +135,16 @@ const Index = () => {
               </CardHeader>
               <CardContent>
                 <div className="rounded-md bg-muted p-4 relative">
-                  <code className="text-sm">
+                  <code className="text-sm font-mono">
                     {`import { Button } from '@sdworx/marketing-ui';`}
                   </code>
                   <Button
                     variant="ghost"
                     size="icon"
-                    className="absolute right-2 top-2 h-6 w-6"
+                    className="absolute right-2 top-2 h-8 w-8"
                     onClick={() => copyToClipboard("import { Button } from '@sdworx/marketing-ui';")}
                   >
-                    <Copy className="h-3 w-3" />
+                    <Copy className="h-4 w-4" />
                   </Button>
                 </div>
               </CardContent>
