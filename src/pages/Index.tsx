@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Copy, ExternalLink, Github, Package, Download, Plus, Settings, Heart } from "lucide-react";
@@ -44,7 +44,7 @@ const Index = () => {
             <a className="mr-6 flex items-center space-x-2" href="/">
               <Package className="h-6 w-6" />
               <span className="hidden font-bold sm:inline-block">
-                SDWorx Marketing UI Components
+                SDWorx Marketing Team Component Library
               </span>
             </a>
           </div>
@@ -52,6 +52,9 @@ const Index = () => {
             <nav className="flex items-center space-x-6 text-sm font-medium">
               <a href="#button" className="transition-colors hover:text-foreground/80">
                 Button
+              </a>
+              <a href="#card" className="transition-colors hover:text-foreground/80">
+                Card
               </a>
               <a href="#installation" className="transition-colors hover:text-foreground/80">
                 Installation
@@ -76,22 +79,18 @@ const Index = () => {
             Legacy CSS Powered
           </Badge>
           <h1 className="text-3xl font-bold leading-tight tracking-tighter md:text-5xl lg:text-6xl lg:leading-[1.1]">
-            Build marketing sites with{" "}
-            <span className="text-primary">SDWorx UI Components</span>
+            Professional React components with{" "}
+            <span className="text-primary">SDWorx Design System</span>
           </h1>
           <p className="max-w-[750px] text-lg text-muted-foreground sm:text-xl">
-            Professional React components using SDWorx legacy design system. 
-            Perfect for marketing websites with consistent branding and accessibility.
+            A comprehensive component library built with SDWorx legacy CSS classes. 
+            Consistent, accessible, and ready for production use.
           </p>
         </div>
         <div className="flex gap-4">
           <Button size="lg">
             <Download className="mr-2 h-4 w-4" />
             Get Started
-          </Button>
-          <Button variant="outline" size="lg">
-            <Github className="mr-2 h-4 w-4" />
-            View on GitHub
           </Button>
         </div>
       </section>
@@ -432,6 +431,310 @@ const Index = () => {
                     size="icon"
                     className="absolute right-2 top-2 h-6 w-6"
                     onClick={() => copyToClipboard(`<Button asChild variant="default">\n  <a href="/dashboard">Primary Link</a>\n</Button>\n<Button asChild variant="secondary">\n  <a href="/profile">Secondary Link</a>\n</Button>`)}
+                  >
+                    <Copy className="h-3 w-3" />
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      <Separator />
+
+      {/* Card Documentation */}
+      <section id="card" className="container py-8 md:py-12">
+        <div className="mx-auto max-w-[980px]">
+          <div className="mb-8">
+            <h2 className="text-2xl font-bold leading-tight tracking-tighter md:text-3xl mb-4">
+              Card
+            </h2>
+            <p className="text-muted-foreground text-lg">
+              Flexible container component for displaying related content in a structured format. 
+              Built with SDWorx legacy CSS classes for consistent styling.
+            </p>
+          </div>
+          
+          {/* Base Cards */}
+          <div className="mb-12">
+            <h3 className="text-xl font-semibold mb-4">Base Components</h3>
+            <p className="text-muted-foreground mb-6">
+              Default card with border and raised card with shadow.
+            </p>
+            
+            <Card className="mb-6">
+              <CardHeader>
+                <CardTitle className="text-lg">Default and Raised</CardTitle>
+                <CardDescription>Basic card with border and elevated card with shadow</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                  <Card>
+                    <CardContent>
+                      <p className="p-4">Default card with border</p>
+                    </CardContent>
+                  </Card>
+                  <Card shadow>
+                    <CardContent>
+                      <p className="p-4">Raised card with shadow</p>
+                    </CardContent>
+                  </Card>
+                </div>
+                <div className="rounded-md bg-muted p-4 relative">
+                  <code className="text-sm whitespace-pre">
+{`<Card>
+  <CardContent>Default card with border</CardContent>
+</Card>
+<Card shadow>
+  <CardContent>Raised card with shadow</CardContent>  
+</Card>`}
+                  </code>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="absolute right-2 top-2 h-6 w-6"
+                    onClick={() => copyToClipboard(`<Card>\n  <CardContent>Default card with border</CardContent>\n</Card>\n<Card shadow>\n  <CardContent>Raised card with shadow</CardContent>\n</Card>`)}
+                  >
+                    <Copy className="h-3 w-3" />
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Header and Footer */}
+          <div className="mb-12">
+            <h3 className="text-xl font-semibold mb-4">Header and Footer</h3>
+            <p className="text-muted-foreground mb-6">
+              Cards can include headers and footers for structured content organization.
+            </p>
+            
+            <Card className="mb-6">
+              <CardHeader>
+                <CardTitle className="text-lg">Structured Cards</CardTitle>
+                <CardDescription>Cards with headers, content, and footers</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+                  <Card>
+                    <CardHeader>
+                      <h5>Card Header</h5>
+                    </CardHeader>
+                    <CardContent>
+                      Card body content goes here
+                    </CardContent>
+                  </Card>
+                  <Card>
+                    <CardContent>
+                      Card body content
+                    </CardContent>
+                    <CardFooter>
+                      Card footer text
+                    </CardFooter>
+                  </Card>
+                  <Card>
+                    <CardHeader>
+                      <h5>Complete Card</h5>
+                    </CardHeader>
+                    <CardContent>
+                      Card body with header and footer
+                    </CardContent>
+                    <CardFooter>
+                      Footer information
+                    </CardFooter>
+                  </Card>
+                </div>
+                <div className="rounded-md bg-muted p-4 relative">
+                  <code className="text-sm whitespace-pre">
+{`<Card>
+  <CardHeader>
+    <h5>Card Header</h5>
+  </CardHeader>
+  <CardContent>
+    Card body content goes here
+  </CardContent>
+</Card>
+<Card>
+  <CardContent>Card body content</CardContent>
+  <CardFooter>Card footer text</CardFooter>
+</Card>`}
+                  </code>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="absolute right-2 top-2 h-6 w-6"
+                    onClick={() => copyToClipboard(`<Card>\n  <CardHeader>\n    <h5>Card Header</h5>\n  </CardHeader>\n  <CardContent>\n    Card body content goes here\n  </CardContent>\n</Card>\n<Card>\n  <CardContent>Card body content</CardContent>\n  <CardFooter>Card footer text</CardFooter>\n</Card>`)}
+                  >
+                    <Copy className="h-3 w-3" />
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Form Example */}
+          <div className="mb-12">
+            <h3 className="text-xl font-semibold mb-4">Form with Actions</h3>
+            <p className="text-muted-foreground mb-6">
+              Complex card example with header actions and form content.
+            </p>
+            
+            <Card className="mb-6">
+              <CardHeader>
+                <CardTitle className="text-lg">Interactive Card</CardTitle>
+                <CardDescription>Card with header actions and form elements</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <Card shadow className="mb-6">
+                  <CardHeader className="flex-row items-center justify-between">
+                    <h5 className="m-0">Work Experience</h5>
+                    <div className="flex gap-2">
+                      <Button variant="link" size="sm">
+                        <Plus className="mr-1 h-3 w-3" />
+                        Add
+                      </Button>
+                      <Button variant="link" size="sm">
+                        <Settings className="mr-1 h-3 w-3" />
+                        Edit
+                      </Button>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                      <div>
+                        <label className="block text-sm font-medium mb-1">Job title</label>
+                        <input 
+                          type="text" 
+                          className="w-full p-2 border rounded"
+                          placeholder="UI/UX Designer" 
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium mb-1">Job type</label>
+                        <select className="w-full p-2 border rounded">
+                          <option>Agile coach</option>
+                          <option>Designer</option>
+                          <option>Developer</option>
+                          <option>Product owner</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium mb-1">Job Location</label>
+                      <select className="w-full p-2 border rounded">
+                        <option>Antwerp</option>
+                        <option>Brussels</option>
+                        <option>Ghent</option>
+                      </select>
+                    </div>
+                  </CardContent>
+                </Card>
+                <div className="rounded-md bg-muted p-4 relative">
+                  <code className="text-sm whitespace-pre">
+{`<Card shadow>
+  <CardHeader className="flex-row items-center justify-between">
+    <h5>Work Experience</h5>
+    <div className="flex gap-2">
+      <Button variant="link" size="sm">Add</Button>
+      <Button variant="link" size="sm">Edit</Button>
+    </div>
+  </CardHeader>
+  <CardContent>
+    <div className="grid grid-cols-2 gap-4">
+      <input placeholder="Job title" />
+      <select>
+        <option>Job type</option>
+      </select>
+    </div>
+  </CardContent>
+</Card>`}
+                  </code>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="absolute right-2 top-2 h-6 w-6"
+                    onClick={() => copyToClipboard(`<Card shadow>\n  <CardHeader className="flex-row items-center justify-between">\n    <h5>Work Experience</h5>\n    <div className="flex gap-2">\n      <Button variant="link" size="sm">Add</Button>\n      <Button variant="link" size="sm">Edit</Button>\n    </div>\n  </CardHeader>\n  <CardContent>\n    <div className="grid grid-cols-2 gap-4">\n      <input placeholder="Job title" />\n      <select>\n        <option>Job type</option>\n      </select>\n    </div>\n  </CardContent>\n</Card>`)}
+                  >
+                    <Copy className="h-3 w-3" />
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Nested Cards */}
+          <div className="mb-12">
+            <h3 className="text-xl font-semibold mb-4">Nested Cards</h3>
+            <p className="text-muted-foreground mb-6">
+              Cards can be nested within other cards. Use shadow only on the outermost card.
+            </p>
+            
+            <Card className="mb-6">
+              <CardHeader>
+                <CardTitle className="text-lg">Nested Structure</CardTitle>
+                <CardDescription>Outer card with shadow containing inner bordered cards</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <Card shadow className="mb-6">
+                  <CardContent className="p-4">
+                    <div className="flex items-center mb-3">
+                      <h4 className="m-0 flex-1">Work Experience</h4>
+                    </div>
+                    <h5 className="m-0 font-medium text-muted-foreground mb-3">
+                      Hey there, I would appreciate if you could give your feedback on this new component.
+                    </h5>
+                    <Card className="my-3">
+                      <CardContent className="p-4">
+                        <div className="flex items-center mb-3">
+                          <h4 className="m-0 flex-1">Improve Employee's net result</h4>
+                          <Button variant="link" size="icon">
+                            <Settings className="h-4 w-4" />
+                          </Button>
+                        </div>
+                        <p className="text-sm text-muted-foreground mb-4">
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+                          incididunt ut labore et dolore magna aliqua.
+                        </p>
+                        <Button variant="primary" className="w-full">Discover now</Button>
+                      </CardContent>
+                    </Card>
+                    <div className="flex gap-2 justify-end">
+                      <Button variant="tertiary">
+                        Needs Improvement
+                      </Button>
+                      <Button variant="primary">
+                        I like it
+                      </Button>
+                    </div>
+                  </CardContent>
+                  <CardFooter>
+                    <span className="text-sm text-muted-foreground">Posted by John Doe - 1 day ago</span>
+                  </CardFooter>
+                </Card>
+                <div className="rounded-md bg-muted p-4 relative">
+                  <code className="text-sm whitespace-pre">
+{`<Card shadow>
+  <CardContent>
+    <h4>Work Experience</h4>
+    <Card>
+      <CardContent>
+        <h4>Improve Employee's net result</h4>
+        <p>Lorem ipsum dolor sit amet...</p>
+        <Button variant="primary">Discover now</Button>
+      </CardContent>
+    </Card>
+  </CardContent>
+  <CardFooter>
+    <span>Posted by John Doe - 1 day ago</span>
+  </CardFooter>
+</Card>`}
+                  </code>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="absolute right-2 top-2 h-6 w-6"
+                    onClick={() => copyToClipboard(`<Card shadow>\n  <CardContent>\n    <h4>Work Experience</h4>\n    <Card>\n      <CardContent>\n        <h4>Improve Employee's net result</h4>\n        <p>Lorem ipsum dolor sit amet...</p>\n        <Button variant="primary">Discover now</Button>\n      </CardContent>\n    </Card>\n  </CardContent>\n  <CardFooter>\n    <span>Posted by John Doe - 1 day ago</span>\n  </CardFooter>\n</Card>`)}
                   >
                     <Copy className="h-3 w-3" />
                   </Button>
