@@ -8,11 +8,15 @@ const buttonVariants = cva("btn", {
   variants: {
     variant: {
       default: "btn-primary",
-      destructive: "btn-danger",
-      outline: "btn-secondary",
+      primary: "btn-primary",
       secondary: "btn-secondary", 
-      ghost: "btn-tertiary",
+      tertiary: "btn-tertiary",
+      danger: "btn-danger",
+      destructive: "btn-danger",
       link: "btn-link",
+      // Legacy mappings for compatibility
+      outline: "btn-secondary",
+      ghost: "btn-tertiary",
     },
     size: {
       default: "",

@@ -182,25 +182,25 @@ const Index = () => {
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap gap-4 mb-6">
-                  <Button variant="default">Primary</Button>
+                  <Button variant="primary">Primary</Button>
                   <Button variant="secondary">Secondary</Button>
-                  <Button variant="ghost">Tertiary</Button>
-                  <Button variant="destructive">Danger</Button>
+                  <Button variant="tertiary">Tertiary</Button>
+                  <Button variant="danger">Danger</Button>
                   <Button variant="link">Link</Button>
                 </div>
                 <div className="rounded-md bg-muted p-4 relative">
                   <code className="text-sm whitespace-pre">
-{`<Button variant="default">Primary</Button>
+{`<Button variant="primary">Primary</Button>
 <Button variant="secondary">Secondary</Button>
-<Button variant="ghost">Tertiary</Button>
-<Button variant="destructive">Danger</Button>
+<Button variant="tertiary">Tertiary</Button>
+<Button variant="danger">Danger</Button>
 <Button variant="link">Link</Button>`}
                   </code>
                   <Button
                     variant="ghost"
                     size="icon"
                     className="absolute right-2 top-2 h-6 w-6"
-                    onClick={() => copyToClipboard(`<Button variant="default">Primary</Button>\n<Button variant="secondary">Secondary</Button>\n<Button variant="ghost">Tertiary</Button>\n<Button variant="destructive">Danger</Button>\n<Button variant="link">Link</Button>`)}
+                    onClick={() => copyToClipboard(`<Button variant="primary">Primary</Button>\n<Button variant="secondary">Secondary</Button>\n<Button variant="tertiary">Tertiary</Button>\n<Button variant="danger">Danger</Button>\n<Button variant="link">Link</Button>`)}
                   >
                     <Copy className="h-3 w-3" />
                   </Button>
