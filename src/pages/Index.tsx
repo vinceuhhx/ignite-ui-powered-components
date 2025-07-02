@@ -45,7 +45,7 @@ const Index = () => {
             <a className="mr-6 flex items-center space-x-2" href="/">
               <Package className="h-6 w-6" />
               <span className="hidden font-bold sm:inline-block">
-                SDWorx Marketing Team Component Library
+                SparkUI Component Library
               </span>
             </a>
           </div>
@@ -81,10 +81,10 @@ const Index = () => {
           </Badge>
           <h1 className="text-3xl font-bold leading-tight tracking-tighter md:text-5xl lg:text-6xl lg:leading-[1.1]">
             Professional React components with{" "}
-            <span className="text-primary">SDWorx Design System</span>
+            <span className="text-primary">SparkUI Design System</span>
           </h1>
           <p className="max-w-[750px] text-lg text-muted-foreground sm:text-xl">
-            A comprehensive component library built with SDWorx legacy CSS classes. 
+            A comprehensive component library built with modern design principles. 
             Consistent, accessible, and ready for production use.
           </p>
         </div>
@@ -109,17 +109,17 @@ const Index = () => {
               <CardHeader>
                 <CardTitle>Install Package</CardTitle>
                 <CardDescription>
-                  Install the SDWorx Marketing UI component library
+                  Install the SparkUI component library
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="rounded-md bg-muted p-4 relative">
-                  <code className="text-sm font-mono">npm install @sdworx/marketing-ui</code>
+                  <code className="text-sm font-mono">npm install @sparkui/react</code>
                   <Button
                     variant="ghost"
                     size="icon"
                     className="absolute right-2 top-2 h-8 w-8"
-                    onClick={() => copyToClipboard("npm install @sdworx/marketing-ui")}
+                    onClick={() => copyToClipboard("npm install @sparkui/react")}
                   >
                     <Copy className="h-4 w-4" />
                   </Button>
@@ -137,13 +137,13 @@ const Index = () => {
               <CardContent>
                 <div className="rounded-md bg-muted p-4 relative">
                   <code className="text-sm font-mono">
-                    {`import { Button } from '@sdworx/marketing-ui';`}
+                    {`import { Button } from '@sparkui/react';`}
                   </code>
                   <Button
                     variant="ghost"
                     size="icon"
                     className="absolute right-2 top-2 h-8 w-8"
-                    onClick={() => copyToClipboard("import { Button } from '@sdworx/marketing-ui';")}
+                    onClick={() => copyToClipboard("import { Button } from '@sparkui/react';")}
                   >
                     <Copy className="h-4 w-4" />
                   </Button>
@@ -164,7 +164,7 @@ const Index = () => {
               Components
             </h2>
             <p className="text-muted-foreground text-lg">
-              Explore our comprehensive component library built with SDWorx legacy design system.
+              Explore our comprehensive component library built with modern design principles.
             </p>
           </div>
 
@@ -471,7 +471,7 @@ const Index = () => {
           <div className="flex flex-col items-center gap-4 px-8 md:flex-row md:gap-2 md:px-0">
             <Package className="h-6 w-6" />
             <p className="text-center text-sm leading-loose text-muted-foreground md:text-left">
-              Built by SDWorx. Powered by legacy CSS design system.
+              Built with SparkUI. Modern, accessible, and developer-friendly.
             </p>
           </div>
         </div>

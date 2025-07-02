@@ -11,9 +11,9 @@ export default function Home() {
   return (
     <main className="container mx-auto p-8 space-y-8">
       <div className="text-center space-y-4">
-        <h1 className="text-4xl font-bold">SD Worx Ignite UI</h1>
+        <h1 className="text-4xl font-bold">SparkUI</h1>
         <p className="text-lg text-gray-600">
-          Component library powered by versioned CDN styles
+          Modern React component library
         </p>
       </div>
 
