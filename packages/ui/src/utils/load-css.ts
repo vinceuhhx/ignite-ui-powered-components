@@ -81,8 +81,7 @@ export async function loadBaseCss(): Promise<void> {
   }
 
   try {
-    const config = getCdnConfig();
-    const cssUrl = `${config.baseUrl}/${config.version}/website/all.css`;
+    const cssUrl = "https://cdn.sdworx.com/ignite/styling/legacy/webkit-7.6.2.css";
     
     // Check if CSS is already loaded
     const existingLink = document.querySelector(`link[href="${cssUrl}"]`);

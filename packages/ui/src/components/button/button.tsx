@@ -4,21 +4,22 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../../utils/cn";
 import { loadCss, loadBaseCss } from "../../utils/load-css";
 
-const buttonVariants = cva("ig-btn", {
+const buttonVariants = cva("btn", {
   variants: {
     variant: {
-      default: "ig-btn--primary",
-      destructive: "ig-btn--danger",
-      outline: "ig-btn--secondary",
-      secondary: "ig-btn--secondary", 
-      ghost: "ig-btn--tertiary",
-      link: "ig-btn--text",
+      default: "btn-primary",
+      destructive: "btn-danger",
+      outline: "btn-secondary",
+      secondary: "btn-secondary", 
+      ghost: "btn-tertiary",
+      link: "btn-link",
     },
     size: {
       default: "",
-      sm: "ig-btn--sm",
-      lg: "ig-btn--lg", 
-      icon: "ig-btn--icon",
+      sm: "btn-sm",
+      lg: "btn-lg",
+      xl: "btn-xl", 
+      icon: "",
     },
   },
   defaultVariants: {
@@ -35,9 +36,8 @@ export interface ButtonProps
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, ...props }, ref) => {
-    // Load component CSS and base tokens when component mounts
+    // Load base CSS with legacy styles when component mounts
     React.useEffect(() => {
-      loadCss("button");
       loadBaseCss();
     }, []);
 
