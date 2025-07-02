@@ -8,7 +8,7 @@ const meta: Meta<typeof Button> = {
     layout: "centered",
     docs: {
       description: {
-        component: "A versatile button component with multiple variants and sizes. Styles are loaded from the SD Worx CDN.",
+        component: "A versatile button component using SD Worx Ignite design tokens. Styles are loaded from the SD Worx CDN with automatic loading of base tokens and component-specific CSS.",
       },
     },
   },
@@ -17,7 +17,7 @@ const meta: Meta<typeof Button> = {
     variant: {
       control: { type: "select" },
       options: ["default", "destructive", "outline", "secondary", "ghost", "link"],
-      description: "The visual style variant of the button",
+      description: "The visual style variant of the button (maps to ig-btn variants)",
     },
     size: {
       control: { type: "select" },
@@ -38,58 +38,65 @@ const meta: Meta<typeof Button> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+// Primary/Default Button (ig-btn--primary)
 export const Default: Story = {
   args: {
-    children: "Button",
+    children: "Primary Button",
   },
 };
 
+// Destructive/Danger Button (ig-btn--danger)
 export const Destructive: Story = {
   args: {
     variant: "destructive",
-    children: "Delete",
+    children: "Danger Button",
   },
 };
 
+// Outline/Secondary Button (ig-btn--secondary)
 export const Outline: Story = {
   args: {
     variant: "outline",
-    children: "Outline",
+    children: "Secondary Button",
   },
 };
 
+// Secondary Button (ig-btn--secondary)
 export const Secondary: Story = {
   args: {
     variant: "secondary",
-    children: "Secondary",
+    children: "Secondary Button",
   },
 };
 
+// Ghost/Tertiary Button (ig-btn--tertiary)
 export const Ghost: Story = {
   args: {
     variant: "ghost",
-    children: "Ghost",
+    children: "Tertiary Button",
   },
 };
 
+// Link/Text Button (ig-btn--text)
 export const Link: Story = {
   args: {
     variant: "link",
-    children: "Link",
+    children: "Text Button",
   },
 };
 
+// Size Variants
 export const Small: Story = {
   args: {
     size: "sm",
-    children: "Small",
+    children: "Small Button",
   },
 };
 
 export const Large: Story = {
   args: {
     size: "lg",
-    children: "Large",
+    children: "Large Button",
   },
 };
 
@@ -100,9 +107,42 @@ export const Icon: Story = {
   },
 };
 
+// States
 export const Disabled: Story = {
   args: {
     disabled: true,
-    children: "Disabled",
+    children: "Disabled Button",
+  },
+};
+
+// All Variants Showcase
+export const AllVariants: Story = {
+  render: () => (
+    <div style={{ display: "flex", flexDirection: "column", gap: "16px", alignItems: "center" }}>
+      <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", justifyContent: "center" }}>
+        <Button variant="default">Primary</Button>
+        <Button variant="secondary">Secondary</Button>
+        <Button variant="ghost">Tertiary</Button>
+        <Button variant="destructive">Danger</Button>
+        <Button variant="link">Text</Button>
+      </div>
+      <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", justifyContent: "center" }}>
+        <Button size="sm">Small</Button>
+        <Button size="default">Default</Button>
+        <Button size="lg">Large</Button>
+        <Button size="icon">→</Button>
+      </div>
+      <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", justifyContent: "center" }}>
+        <Button disabled>Disabled</Button>
+        <Button variant="destructive" disabled>Disabled Danger</Button>
+      </div>
+    </div>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: "Showcase of all button variants, sizes, and states using SD Worx Ignite design tokens.",
+      },
+    },
   },
 };
