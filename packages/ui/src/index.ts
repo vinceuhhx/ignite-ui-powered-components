@@ -17,6 +17,7 @@ export {
 export { cn } from "./utils/cn";
 export { 
   loadCss, 
+  loadBaseCss,
   preloadComponentCss, 
   setCdnConfig, 
   getCdnConfig 

@@ -72,6 +72,52 @@ export async function loadCss(componentName: string): Promise<void> {
   }
 }
 
+export async function loadBaseCss(): Promise<void> {
+  const baseKey = "base-tokens";
+  
+  // Prevent duplicate loading
+  if (loadedComponents.has(baseKey)) {
+    return;
+  }
+
+  try {
+    const config = getCdnConfig();
+    const cssUrl = `${config.baseUrl}/${config.version}/website/all.css`;
+    
+    // Check if CSS is already loaded
+    const existingLink = document.querySelector(`link[href="${cssUrl}"]`);
+    if (existingLink) {
+      loadedComponents.add(baseKey);
+      return;
+    }
+
+    // Create and load CSS link
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = cssUrl;
+    
+    // Return promise that resolves when CSS loads
+    return new Promise((resolve, reject) => {
+      link.onload = () => {
+        loadedComponents.add(baseKey);
+        resolve();
+      };
+      
+      link.onerror = () => {
+        console.warn(`Failed to load base CSS from ${cssUrl}`);
+        // Don't reject - continue without styles rather than breaking
+        loadedComponents.add(baseKey);
+        resolve();
+      };
+      
+      document.head.appendChild(link);
+    });
+  } catch (error) {
+    console.warn(`Error loading base CSS`, error);
+    loadedComponents.add(baseKey);
+  }
+}
+
 export function preloadComponentCss(componentNames: string[]): Promise<void[]> {
   return Promise.all(componentNames.map(loadCss));
 }

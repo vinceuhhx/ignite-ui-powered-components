@@ -2,23 +2,23 @@ import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../../utils/cn";
-import { loadCss } from "../../utils/load-css";
+import { loadCss, loadBaseCss } from "../../utils/load-css";
 
-const buttonVariants = cva("ignite-button", {
+const buttonVariants = cva("ig-btn", {
   variants: {
     variant: {
-      default: "ignite-button--default",
-      destructive: "ignite-button--destructive",
-      outline: "ignite-button--outline",
-      secondary: "ignite-button--secondary",
-      ghost: "ignite-button--ghost",
-      link: "ignite-button--link",
+      default: "ig-btn--primary",
+      destructive: "ig-btn--danger",
+      outline: "ig-btn--secondary",
+      secondary: "ig-btn--secondary", 
+      ghost: "ig-btn--tertiary",
+      link: "ig-btn--text",
     },
     size: {
-      default: "ignite-button--size-default",
-      sm: "ignite-button--size-sm",
-      lg: "ignite-button--size-lg",
-      icon: "ignite-button--size-icon",
+      default: "",
+      sm: "ig-btn--sm",
+      lg: "ig-btn--lg", 
+      icon: "ig-btn--icon",
     },
   },
   defaultVariants: {
@@ -35,9 +35,10 @@ export interface ButtonProps
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, ...props }, ref) => {
-    // Load component CSS when component mounts
+    // Load component CSS and base tokens when component mounts
     React.useEffect(() => {
       loadCss("button");
+      loadBaseCss();
     }, []);
 
     const Comp = asChild ? Slot : "button";
