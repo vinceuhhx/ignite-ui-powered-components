@@ -1,33 +1,37 @@
+
 import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
-const cardVariants = cva("card", {
-  variants: {
-    variant: {
-      default: "",
-      outlined: "card-outlined",
-      elevated: "card-elevated",
+const cardVariants = cva(
+  "rounded-lg border bg-card text-card-foreground", // Base Tailwind styles as fallback
+  {
+    variants: {
+      variant: {
+        default: "card border-border",
+        outlined: "card-outlined border-2",
+        elevated: "card-elevated shadow-lg",
+      },
+      size: {
+        default: "",
+        sm: "card-sm",
+        lg: "card-lg", 
+        xl: "card-xl",
+      },
+      padding: {
+        default: "",
+        none: "card-no-padding p-0",
+        sm: "card-padding-sm p-3",
+        lg: "card-padding-lg p-8",
+      },
     },
-    size: {
-      default: "",
-      sm: "card-sm",
-      lg: "card-lg",
-      xl: "card-xl",
+    defaultVariants: {
+      variant: "default",
+      size: "default", 
+      padding: "default",
     },
-    padding: {
-      default: "",
-      none: "card-no-padding",
-      sm: "card-padding-sm",
-      lg: "card-padding-lg",
-    },
-  },
-  defaultVariants: {
-    variant: "default",
-    size: "default",
-    padding: "default",
-  },
-});
+  }
+);
 
 export interface CardProps
   extends React.HTMLAttributes<HTMLDivElement>,
@@ -45,6 +49,8 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
         const link = document.createElement("link");
         link.rel = "stylesheet";
         link.href = cssUrl;
+        link.onload = () => console.log("SD Worx card styles loaded");
+        link.onerror = () => console.warn("Failed to load SD Worx card styles - using fallback styles");
         document.head.appendChild(link);
       }
     }, []);
@@ -54,7 +60,9 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
         ref={ref}
         className={cn(
           cardVariants({ variant, size, padding }),
-          shadow && "shadow",
+          shadow && "shadow-lg",
+          // Fallback Tailwind styles to ensure card is visible
+          "min-h-[100px] w-full",
           className
         )}
         {...props}
@@ -70,7 +78,7 @@ const CardHeader = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn("card-header", className)}
+    className={cn("card-header flex flex-col space-y-1.5 p-6", className)}
     {...props}
   />
 ));
@@ -82,7 +90,7 @@ const CardTitle = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <h3
     ref={ref}
-    className={cn("card-title", className)}
+    className={cn("card-title text-2xl font-semibold leading-none tracking-tight", className)}
     {...props}
   />
 ));
@@ -94,7 +102,7 @@ const CardDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <p
     ref={ref}
-    className={cn("card-description", className)}
+    className={cn("card-description text-sm text-muted-foreground", className)}
     {...props}
   />
 ));
@@ -106,7 +114,7 @@ const CardContent = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div 
     ref={ref} 
-    className={cn("card-body", className)} 
+    className={cn("card-body p-6 pt-0", className)} 
     {...props} 
   />
 ));
@@ -118,7 +126,7 @@ const CardFooter = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn("card-footer", className)}
+    className={cn("card-footer flex items-center p-6 pt-0", className)}
     {...props}
   />
 ));
