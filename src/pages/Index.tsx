@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
@@ -512,51 +513,572 @@ const Index = () => {
             <TabsContent value="card" className="space-y-8">
               {/* Card Documentation */}
               <div className="mb-8">
-                <h3 className="text-xl font-semibold mb-4">Card</h3>
+                <h3 className="text-xl font-semibold mb-4">Card Component</h3>
                 <p className="text-muted-foreground">
-                  Flexible container component for displaying related content in a structured format.
+                  Flexible container component for displaying related content in a structured format with support for images, headers, footers, and various styling options.
                 </p>
               </div>
-              
-              {/* Base Cards */}
-              <Card className="mb-6">
+
+              {/* Basic Cards */}
+              <Card>
                 <CardHeader>
-                  <CardTitle className="text-lg">Default and Raised</CardTitle>
-                  <CardDescription>Basic card with border and elevated card with shadow</CardDescription>
+                  <CardTitle>Basic Cards</CardTitle>
+                  <CardDescription>Standard card layouts with different variants and shadow effects</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <div className="space-y-6 mb-6">
-                    <div>
-                      <h6 className="text-sm font-medium mb-3 text-muted-foreground">Default Card</h6>
-                      <Card className="max-w-sm">
-                        <CardContent>
-                          <p className="p-4">Default card with border</p>
-                        </CardContent>
-                      </Card>
-                    </div>
-                    <div>
-                      <h6 className="text-sm font-medium mb-3 text-muted-foreground">Raised Card</h6>
-                      <Card shadow className="max-w-sm">
-                        <CardContent>
-                          <p className="p-4">Raised card with shadow</p>
-                        </CardContent>
-                      </Card>
-                    </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+                    {/* Default Card */}
+                    <Card>
+                      <CardContent className="p-6">
+                        <h3 className="text-lg font-medium mb-2">Default Card</h3>
+                        <p className="text-muted-foreground text-sm">
+                          Basic card with border styling. Perfect for simple content display.
+                        </p>
+                      </CardContent>
+                    </Card>
+
+                    {/* Outlined Card */}
+                    <Card variant="outlined">
+                      <CardContent className="p-6">
+                        <h3 className="text-lg font-medium mb-2">Outlined Card</h3>
+                        <p className="text-muted-foreground text-sm">
+                          Card with outlined border variant for emphasis.
+                        </p>
+                      </CardContent>
+                    </Card>
+
+                    {/* Elevated Card */}
+                    <Card variant="elevated" shadow>
+                      <CardContent className="p-6">
+                        <h3 className="text-lg font-medium mb-2">Elevated Card</h3>
+                        <p className="text-muted-foreground text-sm">
+                          Card with shadow effect for depth and prominence.
+                        </p>
+                      </CardContent>
+                    </Card>
                   </div>
+
                   <div className="rounded-md bg-muted p-4 relative">
                     <code className="text-sm whitespace-pre">
 {`<Card>
-  <CardContent>Default card with border</CardContent>
+  <CardContent>Default card</CardContent>
 </Card>
-<Card shadow>
-  <CardContent>Raised card with shadow</CardContent>  
+
+<Card variant="outlined">
+  <CardContent>Outlined card</CardContent>
+</Card>
+
+<Card variant="elevated" shadow>
+  <CardContent>Elevated card with shadow</CardContent>
 </Card>`}
                     </code>
                     <Button
                       variant="ghost"
                       size="icon"
                       className="absolute right-2 top-2 h-8 w-8"
-                      onClick={() => copyToClipboard(`<Card>\n  <CardContent>Default card with border</CardContent>\n</Card>\n<Card shadow>\n  <CardContent>Raised card with shadow</CardContent>\n</Card>`)}
+                      onClick={() => copyToClipboard(`<Card>\n  <CardContent>Default card</CardContent>\n</Card>\n\n<Card variant="outlined">\n  <CardContent>Outlined card</CardContent>\n</Card>\n\n<Card variant="elevated" shadow>\n  <CardContent>Elevated card with shadow</CardContent>\n</Card>`)}
+                    >
+                      <Copy className="h-4 w-4" />
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Cards with Headers and Footers */}
+              <Card>
+                <CardHeader>
+                  <CardTitle>Cards with Header and Footer</CardTitle>
+                  <CardDescription>Complete card layouts with structured sections</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    {/* Card with Header */}
+                    <Card>
+                      <CardHeader>
+                        <CardTitle>Project Alpha</CardTitle>
+                        <CardDescription>Development project with React and TypeScript</CardDescription>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-sm text-muted-foreground mb-4">
+                          This project involves building a modern web application using the latest technologies and best practices.
+                        </p>
+                        <div className="flex items-center space-x-2">
+                          <Badge variant="secondary">React</Badge>
+                          <Badge variant="outline">TypeScript</Badge>
+                        </div>
+                      </CardContent>
+                    </Card>
+
+                    {/* Card with Header and Footer */}
+                    <Card shadow>
+                      <CardHeader>
+                        <CardTitle>Team Collaboration</CardTitle>
+                        <CardDescription>Manage your team projects efficiently</CardDescription>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-sm text-muted-foreground mb-4">
+                          Streamline your workflow with integrated project management tools and real-time collaboration features.
+                        </p>
+                        <div className="flex items-center text-sm text-muted-foreground">
+                          <User className="mr-2 h-4 w-4" />
+                          5 team members
+                        </div>
+                      </CardContent>
+                      <CardFooter className="flex justify-between">
+                        <Button variant="outline" size="sm">View Project</Button>
+                        <Button size="sm">Join Team</Button>
+                      </CardFooter>
+                    </Card>
+                  </div>
+
+                  <div className="rounded-md bg-muted p-4 relative">
+                    <code className="text-sm whitespace-pre">
+{`<Card>
+  <CardHeader>
+    <CardTitle>Card Title</CardTitle>
+    <CardDescription>Card description text</CardDescription>
+  </CardHeader>
+  <CardContent>
+    <p>Card content goes here...</p>
+  </CardContent>
+  <CardFooter>
+    <Button>Action</Button>
+  </CardFooter>
+</Card>`}
+                    </code>
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="absolute right-2 top-2 h-8 w-8"
+                      onClick={() => copyToClipboard(`<Card>\n  <CardHeader>\n    <CardTitle>Card Title</CardTitle>\n    <CardDescription>Card description text</CardDescription>\n  </CardHeader>\n  <CardContent>\n    <p>Card content goes here...</p>\n  </CardContent>\n  <CardFooter>\n    <Button>Action</Button>\n  </CardFooter>\n</Card>`)}
+                    >
+                      <Copy className="h-4 w-4" />
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Cards with Images */}
+              <Card>
+                <CardHeader>
+                  <CardTitle>Cards with Images</CardTitle>
+                  <CardDescription>Image cards with top placement and bottom placement options</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+                    {/* Image Top Card */}
+                    <Card shadow>
+                      <div className="aspect-video bg-gradient-to-br from-blue-500 to-purple-600 rounded-t-lg flex items-center justify-center">
+                        <div className="text-white text-center">
+                          <Package className="h-12 w-12 mx-auto mb-2" />
+                          <p className="text-sm">Image Placeholder</p>
+                        </div>
+                      </div>
+                      <CardHeader>
+                        <CardTitle>Modern Web Development</CardTitle>
+                        <CardDescription>Learn the latest technologies</CardDescription>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-sm text-muted-foreground">
+                          Master React, TypeScript, and modern development practices with hands-on projects.
+                        </p>
+                      </CardContent>
+                      <CardFooter>
+                        <Button className="w-full">Start Learning</Button>
+                      </CardFooter>
+                    </Card>
+
+                    {/* Profile Card */}
+                    <Card>
+                      <div className="aspect-square bg-gradient-to-br from-green-500 to-teal-600 rounded-t-lg p-8 flex items-center justify-center">
+                        <User className="h-16 w-16 text-white" />
+                      </div>
+                      <CardHeader>
+                        <CardTitle>Sarah Johnson</CardTitle>
+                        <CardDescription>Senior Developer</CardDescription>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="space-y-2">
+                          <div className="flex items-center text-sm">
+                            <Mail className="mr-2 h-4 w-4 text-muted-foreground" />
+                            sarah@example.com
+                          </div>
+                          <div className="flex items-center text-sm">
+                            <Phone className="mr-2 h-4 w-4 text-muted-foreground" />
+                            +1 (555) 0123
+                          </div>
+                        </div>
+                      </CardContent>
+                      <CardFooter className="flex gap-2">
+                        <Button variant="outline" size="sm" className="flex-1">
+                          <MessageCircle className="mr-2 h-4 w-4" />
+                          Message
+                        </Button>
+                        <Button size="sm" className="flex-1">
+                          <User className="mr-2 h-4 w-4" />
+                          Follow
+                        </Button>
+                      </CardFooter>
+                    </Card>
+
+                    {/* Product Card */}
+                    <Card variant="outlined">
+                      <div className="aspect-video bg-gradient-to-br from-orange-500 to-red-600 rounded-t-lg flex items-center justify-center">
+                        <ShoppingCart className="h-12 w-12 text-white" />
+                      </div>
+                      <CardHeader>
+                        <CardTitle className="flex items-center justify-between">
+                          Premium Package
+                          <Badge variant="secondary">Popular</Badge>
+                        </CardTitle>
+                        <CardDescription>Everything you need to get started</CardDescription>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="text-2xl font-bold mb-4">$29/month</div>
+                        <ul className="space-y-2 text-sm">
+                          <li className="flex items-center">
+                            <Check className="mr-2 h-4 w-4 text-green-500" />
+                            Unlimited projects
+                          </li>
+                          <li className="flex items-center">
+                            <Check className="mr-2 h-4 w-4 text-green-500" />
+                            24/7 support
+                          </li>
+                          <li className="flex items-center">
+                            <Check className="mr-2 h-4 w-4 text-green-500" />
+                            Advanced analytics
+                          </li>
+                        </ul>
+                      </CardContent>
+                      <CardFooter>
+                        <Button className="w-full">Get Started</Button>
+                      </CardFooter>
+                    </Card>
+                  </div>
+
+                  {/* Image Bottom Cards */}
+                  <div className="mb-6">
+                    <h4 className="text-lg font-medium mb-4">Cards with Bottom Images</h4>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <Card shadow>
+                        <CardHeader>
+                          <CardTitle>Technology Update</CardTitle>
+                          <CardDescription>Latest news from the tech world</CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                          <p className="text-sm text-muted-foreground mb-4">
+                            Discover the newest developments in software engineering, AI, and web technologies that are shaping the future.
+                          </p>
+                        </CardContent>
+                        <div className="aspect-video bg-gradient-to-br from-purple-500 to-pink-600 rounded-b-lg flex items-center justify-center">
+                          <div className="text-white text-center">
+                            <Bell className="h-8 w-8 mx-auto mb-2" />
+                            <p className="text-xs">Featured Image</p>
+                          </div>
+                        </div>
+                      </Card>
+
+                      <Card>
+                        <CardHeader>
+                          <CardTitle>Design Inspiration</CardTitle>
+                          <CardDescription>Creative ideas for your next project</CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                          <p className="text-sm text-muted-foreground mb-4">
+                            Explore beautiful design patterns and UI components that will inspire your creative work.
+                          </p>
+                          <div className="flex gap-2 mb-4">
+                            <Badge variant="outline">Design</Badge>
+                            <Badge variant="outline">UI/UX</Badge>
+                          </div>
+                        </CardContent>
+                        <div className="aspect-video bg-gradient-to-br from-cyan-500 to-blue-600 rounded-b-lg flex items-center justify-center">
+                          <div className="text-white text-center">
+                            <Star className="h-8 w-8 mx-auto mb-2" />
+                            <p className="text-xs">Design Preview</p>
+                          </div>
+                        </div>
+                      </Card>
+                    </div>
+                  </div>
+
+                  <div className="rounded-md bg-muted p-4 relative">
+                    <code className="text-sm whitespace-pre">
+{`{/* Image Top Card */}
+<Card shadow>
+  <img src="image.jpg" alt="Card image" className="aspect-video object-cover rounded-t-lg" />
+  <CardHeader>
+    <CardTitle>Card Title</CardTitle>
+  </CardHeader>
+  <CardContent>
+    <p>Card content...</p>
+  </CardContent>
+</Card>
+
+{/* Image Bottom Card */}
+<Card>
+  <CardHeader>
+    <CardTitle>Card Title</CardTitle>
+  </CardHeader>
+  <CardContent>
+    <p>Card content...</p>
+  </CardContent>
+  <img src="image.jpg" alt="Card image" className="aspect-video object-cover rounded-b-lg" />
+</Card>`}
+                    </code>
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="absolute right-2 top-2 h-8 w-8"
+                      onClick={() => copyToClipboard(`{/* Image Top Card */}\n<Card shadow>\n  <img src="image.jpg" alt="Card image" className="aspect-video object-cover rounded-t-lg" />\n  <CardHeader>\n    <CardTitle>Card Title</CardTitle>\n  </CardHeader>\n  <CardContent>\n    <p>Card content...</p>\n  </CardContent>\n</Card>\n\n{/* Image Bottom Card */}\n<Card>\n  <CardHeader>\n    <CardTitle>Card Title</CardTitle>\n  </CardHeader>\n  <CardContent>\n    <p>Card content...</p>\n  </CardContent>\n  <img src="image.jpg" alt="Card image" className="aspect-video object-cover rounded-b-lg" />\n</Card>`)}
+                    >
+                      <Copy className="h-4 w-4" />
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Card Sizes and Variants */}
+              <Card>
+                <CardHeader>
+                  <CardTitle>Card Sizes and Padding</CardTitle>
+                  <CardDescription>Different card sizes and padding options</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-6 mb-6">
+                    {/* Small Cards */}
+                    <div>
+                      <h4 className="text-sm font-medium mb-3 text-muted-foreground uppercase tracking-wide">Small Cards</h4>
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <Card size="sm">
+                          <CardContent className="p-3">
+                            <h4 className="font-medium">Small Card</h4>
+                            <p className="text-xs text-muted-foreground">Compact layout</p>
+                          </CardContent>
+                        </Card>
+                        <Card size="sm" shadow>
+                          <CardContent className="p-3">
+                            <h4 className="font-medium">Small + Shadow</h4>
+                            <p className="text-xs text-muted-foreground">With elevation</p>
+                          </CardContent>
+                        </Card>
+                        <Card size="sm" variant="outlined">
+                          <CardContent className="p-3">
+                            <h4 className="font-medium">Small Outlined</h4>
+                            <p className="text-xs text-muted-foreground">With border</p>
+                          </CardContent>
+                        </Card>
+                      </div>
+                    </div>
+
+                    {/* Large Cards */}
+                    <div>
+                      <h4 className="text-sm font-medium mb-3 text-muted-foreground uppercase tracking-wide">Large Cards</h4>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <Card size="lg" shadow>
+                          <CardHeader>
+                            <CardTitle>Large Card Example</CardTitle>
+                            <CardDescription>Spacious layout for detailed content</CardDescription>
+                          </CardHeader>
+                          <CardContent>
+                            <p className="text-muted-foreground mb-4">
+                              Large cards provide more space for content and are perfect for detailed information display.
+                            </p>
+                            <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                              <div className="flex items-center">
+                                <Calendar className="mr-1 h-4 w-4" />
+                                March 15, 2024
+                              </div>
+                              <div className="flex items-center">
+                                <Star className="mr-1 h-4 w-4" />
+                                4.8 rating
+                              </div>
+                            </div>
+                          </CardContent>
+                          <CardFooter className="flex gap-2">
+                            <Button variant="outline">Learn More</Button>
+                            <Button>Get Started</Button>
+                          </CardFooter>
+                        </Card>
+
+                        <Card size="xl" variant="elevated">
+                          <CardHeader>
+                            <CardTitle>Extra Large Card</CardTitle>
+                            <CardDescription>Maximum space for comprehensive content</CardDescription>
+                          </CardHeader>
+                          <CardContent>
+                            <p className="text-muted-foreground mb-4">
+                              Extra large cards are ideal for dashboard widgets, detailed forms, or rich content presentations.
+                            </p>
+                            <div className="grid grid-cols-2 gap-4 mb-4">
+                              <div className="text-center p-3 bg-muted rounded-lg">
+                                <div className="text-2xl font-bold">1.2K</div>
+                                <div className="text-xs text-muted-foreground">Users</div>
+                              </div>
+                              <div className="text-center p-3 bg-muted rounded-lg">
+                                <div className="text-2xl font-bold">98%</div>
+                                <div className="text-xs text-muted-foreground">Satisfaction</div>
+                              </div>
+                            </div>
+                          </CardContent>
+                          <CardFooter>
+                            <Button className="w-full">View Analytics</Button>
+                          </CardFooter>
+                        </Card>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="rounded-md bg-muted p-4 relative">
+                    <code className="text-sm whitespace-pre">
+{`{/* Card Sizes */}
+<Card size="sm">Small card</Card>
+<Card size="lg">Large card</Card>
+<Card size="xl">Extra large card</Card>
+
+{/* Padding Options */}
+<Card padding="none">No padding</Card>
+<Card padding="sm">Small padding</Card>
+<Card padding="lg">Large padding</Card>
+                    
+{/* Combined Options */}
+<Card size="lg" variant="outlined" shadow>
+  <CardHeader>
+    <CardTitle>Featured Card</CardTitle>
+  </CardHeader>
+  <CardContent>Rich content display</CardContent>
+</Card>`}
+                    </code>
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="absolute right-2 top-2 h-8 w-8"
+                      onClick={() => copyToClipboard(`{/* Card Sizes */}\n<Card size="sm">Small card</Card>\n<Card size="lg">Large card</Card>\n<Card size="xl">Extra large card</Card>\n\n{/* Padding Options */}\n<Card padding="none">No padding</Card>\n<Card padding="sm">Small padding</Card>\n<Card padding="lg">Large padding</Card>\n\n{/* Combined Options */}\n<Card size="lg" variant="outlined" shadow>\n  <CardHeader>\n    <CardTitle>Featured Card</CardTitle>\n  </CardHeader>\n  <CardContent>Rich content display</CardContent>\n</Card>`)}
+                    >
+                      <Copy className="h-4 w-4" />
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Interactive Cards */}
+              <Card>
+                <CardHeader>
+                  <CardTitle>Interactive & Special Cards</CardTitle>
+                  <CardDescription>Cards with hover effects, actions, and special layouts</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+                    {/* Hover Card */}
+                    <Card className="cursor-pointer transition-all hover:shadow-lg hover:scale-105">
+                      <CardContent className="p-6 text-center">
+                        <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                          <RefreshCw className="h-6 w-6 text-blue-600" />
+                        </div>
+                        <h3 className="font-medium mb-2">Hover Effect</h3>
+                        <p className="text-sm text-muted-foreground">
+                          This card has hover animations for better interactivity.
+                        </p>
+                      </CardContent>
+                    </Card>
+
+                    {/* Action Card */}
+                    <Card shadow>
+                      <CardHeader>
+                        <div className="flex items-center justify-between">
+                          <CardTitle className="text-base">Quick Actions</CardTitle>
+                          <Button variant="ghost" size="icon">
+                            <MoreHorizontal className="h-4 w-4" />
+                          </Button>
+                        </div>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="grid grid-cols-2 gap-2">
+                          <Button variant="outline" size="sm" className="flex items-center">
+                            <Edit className="mr-2 h-3 w-3" />
+                            Edit
+                          </Button>
+                          <Button variant="outline" size="sm" className="flex items-center">
+                            <Share2 className="mr-2 h-3 w-3" />
+                            Share
+                          </Button>
+                          <Button variant="outline" size="sm" className="flex items-center">
+                            <Bookmark className="mr-2 h-3 w-3" />
+                            Save
+                          </Button>
+                          <Button variant="outline" size="sm" className="flex items-center">
+                            <Trash2 className="mr-2 h-3 w-3" />
+                            Delete
+                          </Button>
+                        </div>
+                      </CardContent>
+                    </Card>
+
+                    {/* Status Card */}
+                    <Card variant="outlined">
+                      <CardHeader>
+                        <CardTitle className="flex items-center">
+                          <div className="w-3 h-3 bg-green-500 rounded-full mr-2"></div>
+                          System Status
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="space-y-3">
+                          <div className="flex items-center justify-between">
+                            <span className="text-sm">API Status</span>
+                            <Badge variant="default" className="bg-green-100 text-green-800">
+                              <CheckCircle className="mr-1 h-3 w-3" />
+                              Online
+                            </Badge>
+                          </div>
+                          <div className="flex items-center justify-between">
+                            <span className="text-sm">Database</span>
+                            <Badge variant="default" className="bg-green-100 text-green-800">
+                              <CheckCircle className="mr-1 h-3 w-3" />
+                              Healthy
+                            </Badge>
+                          </div>
+                          <div className="flex items-center justify-between">
+                            <span className="text-sm">Last Update</span>
+                            <span className="text-xs text-muted-foreground">2 min ago</span>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
+
+                  <div className="rounded-md bg-muted p-4 relative">
+                    <code className="text-sm whitespace-pre">
+{`{/* Interactive hover card */}
+<Card className="cursor-pointer transition-all hover:shadow-lg hover:scale-105">
+  <CardContent>Hover me!</CardContent>
+</Card>
+
+{/* Status indicators */}
+<Card>
+  <CardHeader>
+    <CardTitle className="flex items-center">
+      <div className="w-3 h-3 bg-green-500 rounded-full mr-2" />
+      Status Card
+    </CardTitle>
+  </CardHeader>
+</Card>
+
+{/* Action cards with buttons */}
+<Card>
+  <CardContent>
+    <div className="grid grid-cols-2 gap-2">
+      <Button size="sm">Action 1</Button>
+      <Button size="sm">Action 2</Button>
+    </div>
+  </CardContent>
+</Card>`}
+                    </code>
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="absolute right-2 top-2 h-8 w-8"
+                      onClick={() => copyToClipboard(`{/* Interactive hover card */}\n<Card className="cursor-pointer transition-all hover:shadow-lg hover:scale-105">\n  <CardContent>Hover me!</CardContent>\n</Card>\n\n{/* Status indicators */}\n<Card>\n  <CardHeader>\n    <CardTitle className="flex items-center">\n      <div className="w-3 h-3 bg-green-500 rounded-full mr-2" />\n      Status Card\n    </CardTitle>\n  </CardHeader>\n</Card>\n\n{/* Action cards with buttons */}\n<Card>\n  <CardContent>\n    <div className="grid grid-cols-2 gap-2">\n      <Button size="sm">Action 1</Button>\n      <Button size="sm">Action 2</Button>\n    </div>\n  </CardContent>\n</Card>`)}
                     >
                       <Copy className="h-4 w-4" />
                     </Button>
