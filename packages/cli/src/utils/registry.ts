@@ -50,11 +50,11 @@ export function getComponentInfo(name: string): ComponentInfo | undefined {
 
 export async function getComponentSourcePath(componentName: string): Promise<string> {
   // Path to the component in the packages/ui directory
-  const sourcePath = path.join(__dirname, '../../ui/src/components', componentName)
+  const sourcePath = path.join(__dirname, '../../ui/src/components', componentName, `${componentName}.tsx`)
   
   if (!(await fs.pathExists(sourcePath))) {
     throw new Error(`Component source not found: ${componentName}`)
   }
   
-  return sourcePath
+  return path.dirname(sourcePath)
 }

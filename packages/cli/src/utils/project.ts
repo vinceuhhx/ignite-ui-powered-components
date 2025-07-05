@@ -43,18 +43,14 @@ export async function copyComponentFiles(
   targetPath: string,
   componentName: string
 ): Promise<void> {
-  const sourceComponentPath = path.join(sourcePath, componentName)
-  const targetComponentPath = path.join(targetPath, componentName)
+  const sourceFilePath = path.join(sourcePath, `${componentName}.tsx`)
+  const targetFilePath = path.join(targetPath, `${componentName}.tsx`)
   
-  if (!(await fs.pathExists(sourceComponentPath))) {
-    throw new Error(`Component source not found: ${sourceComponentPath}`)
+  if (!(await fs.pathExists(sourceFilePath))) {
+    throw new Error(`Component source file not found: ${sourceFilePath}`)
   }
   
-  await fs.copy(sourceComponentPath, targetComponentPath, {
-    overwrite: true,
-    filter: (src) => {
-      // Skip test files and other non-essential files
-      return !src.includes('.test.') && !src.includes('.spec.')
-    }
+  await fs.copy(sourceFilePath, targetFilePath, {
+    overwrite: true
   })
 }

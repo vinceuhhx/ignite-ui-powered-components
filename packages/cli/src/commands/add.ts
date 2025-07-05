@@ -61,7 +61,7 @@ export async function addCommand(components: string[], options: AddOptions) {
         
         // Copy component files
         await copyComponentFiles(
-          path.dirname(sourcePath),
+          sourcePath,
           targetDir,
           componentName
         )
