@@ -1,10 +1,9 @@
-
 import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const cardVariants = cva(
-  "rounded-lg border bg-card text-card-foreground", // Base Tailwind styles as fallback
+  "rounded-lg border bg-card text-card-foreground",
   {
     variants: {
       variant: {
@@ -61,8 +60,6 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
         className={cn(
           cardVariants({ variant, size, padding }),
           shadow && "shadow-lg",
-          // Fallback Tailwind styles to ensure card is visible
-          "min-h-[100px] w-full",
           className
         )}
         {...props}
