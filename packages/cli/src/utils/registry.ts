@@ -37,6 +37,13 @@ export const componentRegistry: Record<string, ComponentInfo> = {
     dependencies: ['@radix-ui/react-select', 'lucide-react'],
     peerDependencies: ['react', 'react-dom'],
     description: 'Framework-agnostic select component with CDN styling'
+  },
+  card: {
+    name: 'card',
+    files: ['card.tsx'],
+    dependencies: ['class-variance-authority'],
+    peerDependencies: ['react', 'react-dom'],
+    description: 'Framework-agnostic card component with CDN styling'
   }
 }
 
