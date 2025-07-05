@@ -201,26 +201,30 @@ const Index = () => {
                     {/* Primary Variants */}
                     <div>
                       <h4 className="text-sm font-medium mb-4 text-muted-foreground uppercase tracking-wide">PRIMARY</h4>
-                      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
                         <div className="space-y-2">
-                          <div className="text-xs text-muted-foreground">Primary</div>
-                          <Button variant="primary" className="w-full">Button label</Button>
+                          <div className="text-xs text-muted-foreground">XS</div>
+                          <Button variant="primary" size="xs" className="w-full">Button</Button>
                         </div>
                         <div className="space-y-2">
-                          <div className="text-xs text-muted-foreground">Primary SM</div>
-                          <Button variant="primary" size="sm" className="w-full">Button label</Button>
+                          <div className="text-xs text-muted-foreground">SM</div>
+                          <Button variant="primary" size="sm" className="w-full">Button</Button>
                         </div>
                         <div className="space-y-2">
-                          <div className="text-xs text-muted-foreground">Primary LG</div>
-                          <Button variant="primary" size="lg" className="w-full">Button label</Button>
+                          <div className="text-xs text-muted-foreground">Default</div>
+                          <Button variant="primary" className="w-full">Button</Button>
                         </div>
                         <div className="space-y-2">
-                          <div className="text-xs text-muted-foreground">Primary XL</div>
-                          <Button variant="primary" size="xl" className="w-full">Button label</Button>
+                          <div className="text-xs text-muted-foreground">LG</div>
+                          <Button variant="primary" size="lg" className="w-full">Button</Button>
                         </div>
                         <div className="space-y-2">
-                          <div className="text-xs text-muted-foreground">Primary Disabled</div>
-                          <Button variant="primary" disabled className="w-full">Button label</Button>
+                          <div className="text-xs text-muted-foreground">XL</div>
+                          <Button variant="primary" size="xl" className="w-full">Button</Button>
+                        </div>
+                        <div className="space-y-2">
+                          <div className="text-xs text-muted-foreground">2XL</div>
+                          <Button variant="primary" size="2xl" className="w-full">Button</Button>
                         </div>
                       </div>
                     </div>
@@ -228,53 +232,123 @@ const Index = () => {
                     {/* Secondary Variants */}
                     <div>
                       <h4 className="text-sm font-medium mb-4 text-muted-foreground uppercase tracking-wide">SECONDARY</h4>
-                      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
                         <div className="space-y-2">
-                          <div className="text-xs text-muted-foreground">Secondary</div>
-                          <Button variant="secondary" className="w-full">Button label</Button>
+                          <div className="text-xs text-muted-foreground">XS</div>
+                          <Button variant="secondary" size="xs" className="w-full">Button</Button>
                         </div>
                         <div className="space-y-2">
-                          <div className="text-xs text-muted-foreground">Secondary SM</div>
-                          <Button variant="secondary" size="sm" className="w-full">Button label</Button>
+                          <div className="text-xs text-muted-foreground">SM</div>
+                          <Button variant="secondary" size="sm" className="w-full">Button</Button>
                         </div>
                         <div className="space-y-2">
-                          <div className="text-xs text-muted-foreground">Secondary LG</div>
-                          <Button variant="secondary" size="lg" className="w-full">Button label</Button>
+                          <div className="text-xs text-muted-foreground">Default</div>
+                          <Button variant="secondary" className="w-full">Button</Button>
                         </div>
                         <div className="space-y-2">
-                          <div className="text-xs text-muted-foreground">Secondary XL</div>
-                          <Button variant="secondary" size="xl" className="w-full">Button label</Button>
+                          <div className="text-xs text-muted-foreground">LG</div>
+                          <Button variant="secondary" size="lg" className="w-full">Button</Button>
                         </div>
                         <div className="space-y-2">
-                          <div className="text-xs text-muted-foreground">Secondary Disabled</div>
-                          <Button variant="secondary" disabled className="w-full">Button label</Button>
+                          <div className="text-xs text-muted-foreground">XL</div>
+                          <Button variant="secondary" size="xl" className="w-full">Button</Button>
+                        </div>
+                        <div className="space-y-2">
+                          <div className="text-xs text-muted-foreground">2XL</div>
+                          <Button variant="secondary" size="2xl" className="w-full">Button</Button>
                         </div>
                       </div>
                     </div>
 
-                    {/* Tertiary Variants */}
+                    {/* Success Variants */}
                     <div>
-                      <h4 className="text-sm font-medium mb-4 text-muted-foreground uppercase tracking-wide">TERTIARY</h4>
-                      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                      <h4 className="text-sm font-medium mb-4 text-muted-foreground uppercase tracking-wide">SUCCESS</h4>
+                      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
                         <div className="space-y-2">
-                          <div className="text-xs text-muted-foreground">Tertiary</div>
-                          <Button variant="tertiary" className="w-full">Button label</Button>
+                          <div className="text-xs text-muted-foreground">XS</div>
+                          <Button variant="success" size="xs" className="w-full">Success</Button>
                         </div>
                         <div className="space-y-2">
-                          <div className="text-xs text-muted-foreground">Tertiary SM</div>
-                          <Button variant="tertiary" size="sm" className="w-full">Button label</Button>
+                          <div className="text-xs text-muted-foreground">SM</div>
+                          <Button variant="success" size="sm" className="w-full">Success</Button>
                         </div>
                         <div className="space-y-2">
-                          <div className="text-xs text-muted-foreground">Tertiary LG</div>
-                          <Button variant="tertiary" size="lg" className="w-full">Button label</Button>
+                          <div className="text-xs text-muted-foreground">Default</div>
+                          <Button variant="success" className="w-full">Success</Button>
                         </div>
                         <div className="space-y-2">
-                          <div className="text-xs text-muted-foreground">Tertiary XL</div>
-                          <Button variant="tertiary" size="xl" className="w-full">Button label</Button>
+                          <div className="text-xs text-muted-foreground">LG</div>
+                          <Button variant="success" size="lg" className="w-full">Success</Button>
                         </div>
                         <div className="space-y-2">
-                          <div className="text-xs text-muted-foreground">Tertiary Disabled</div>
-                          <Button variant="tertiary" disabled className="w-full">Button label</Button>
+                          <div className="text-xs text-muted-foreground">XL</div>
+                          <Button variant="success" size="xl" className="w-full">Success</Button>
+                        </div>
+                        <div className="space-y-2">
+                          <div className="text-xs text-muted-foreground">2XL</div>
+                          <Button variant="success" size="2xl" className="w-full">Success</Button>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Warning Variants */}
+                    <div>
+                      <h4 className="text-sm font-medium mb-4 text-muted-foreground uppercase tracking-wide">WARNING</h4>
+                      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                        <div className="space-y-2">
+                          <div className="text-xs text-muted-foreground">XS</div>
+                          <Button variant="warning" size="xs" className="w-full">Warning</Button>
+                        </div>
+                        <div className="space-y-2">
+                          <div className="text-xs text-muted-foreground">SM</div>
+                          <Button variant="warning" size="sm" className="w-full">Warning</Button>
+                        </div>
+                        <div className="space-y-2">
+                          <div className="text-xs text-muted-foreground">Default</div>
+                          <Button variant="warning" className="w-full">Warning</Button>
+                        </div>
+                        <div className="space-y-2">
+                          <div className="text-xs text-muted-foreground">LG</div>
+                          <Button variant="warning" size="lg" className="w-full">Warning</Button>
+                        </div>
+                        <div className="space-y-2">
+                          <div className="text-xs text-muted-foreground">XL</div>
+                          <Button variant="warning" size="xl" className="w-full">Warning</Button>
+                        </div>
+                        <div className="space-y-2">
+                          <div className="text-xs text-muted-foreground">2XL</div>
+                          <Button variant="warning" size="2xl" className="w-full">Warning</Button>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Info Variants */}
+                    <div>
+                      <h4 className="text-sm font-medium mb-4 text-muted-foreground uppercase tracking-wide">INFO</h4>
+                      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                        <div className="space-y-2">
+                          <div className="text-xs text-muted-foreground">XS</div>
+                          <Button variant="info" size="xs" className="w-full">Info</Button>
+                        </div>
+                        <div className="space-y-2">
+                          <div className="text-xs text-muted-foreground">SM</div>
+                          <Button variant="info" size="sm" className="w-full">Info</Button>
+                        </div>
+                        <div className="space-y-2">
+                          <div className="text-xs text-muted-foreground">Default</div>
+                          <Button variant="info" className="w-full">Info</Button>
+                        </div>
+                        <div className="space-y-2">
+                          <div className="text-xs text-muted-foreground">LG</div>
+                          <Button variant="info" size="lg" className="w-full">Info</Button>
+                        </div>
+                        <div className="space-y-2">
+                          <div className="text-xs text-muted-foreground">XL</div>
+                          <Button variant="info" size="xl" className="w-full">Info</Button>
+                        </div>
+                        <div className="space-y-2">
+                          <div className="text-xs text-muted-foreground">2XL</div>
+                          <Button variant="info" size="2xl" className="w-full">Info</Button>
                         </div>
                       </div>
                     </div>
@@ -282,61 +356,108 @@ const Index = () => {
                     {/* Danger Variants */}
                     <div>
                       <h4 className="text-sm font-medium mb-4 text-muted-foreground uppercase tracking-wide">DANGER</h4>
-                      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
                         <div className="space-y-2">
-                          <div className="text-xs text-muted-foreground">Danger</div>
-                          <Button variant="danger" className="w-full">Button label</Button>
+                          <div className="text-xs text-muted-foreground">XS</div>
+                          <Button variant="danger" size="xs" className="w-full">Danger</Button>
                         </div>
                         <div className="space-y-2">
-                          <div className="text-xs text-muted-foreground">Danger SM</div>
-                          <Button variant="danger" size="sm" className="w-full">Button label</Button>
+                          <div className="text-xs text-muted-foreground">SM</div>
+                          <Button variant="danger" size="sm" className="w-full">Danger</Button>
                         </div>
                         <div className="space-y-2">
-                          <div className="text-xs text-muted-foreground">Danger LG</div>
-                          <Button variant="danger" size="lg" className="w-full">Button label</Button>
+                          <div className="text-xs text-muted-foreground">Default</div>
+                          <Button variant="danger" className="w-full">Danger</Button>
                         </div>
                         <div className="space-y-2">
-                          <div className="text-xs text-muted-foreground">Danger XL</div>
-                          <Button variant="danger" size="xl" className="w-full">Button label</Button>
+                          <div className="text-xs text-muted-foreground">LG</div>
+                          <Button variant="danger" size="lg" className="w-full">Danger</Button>
                         </div>
                         <div className="space-y-2">
-                          <div className="text-xs text-muted-foreground">Danger Disabled</div>
-                          <Button variant="danger" disabled className="w-full">Button label</Button>
+                          <div className="text-xs text-muted-foreground">XL</div>
+                          <Button variant="danger" size="xl" className="w-full">Danger</Button>
+                        </div>
+                        <div className="space-y-2">
+                          <div className="text-xs text-muted-foreground">2XL</div>
+                          <Button variant="danger" size="2xl" className="w-full">Danger</Button>
                         </div>
                       </div>
                     </div>
 
-                    {/* Link Variants */}
+                    {/* Interactive States */}
                     <div>
-                      <h4 className="text-sm font-medium mb-4 text-muted-foreground uppercase tracking-wide">LINK</h4>
+                      <h4 className="text-sm font-medium mb-4 text-muted-foreground uppercase tracking-wide">INTERACTIVE STATES</h4>
                       <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
                         <div className="space-y-2">
-                          <div className="text-xs text-muted-foreground">Link</div>
-                          <Button variant="link" className="w-full">Button label</Button>
+                          <div className="text-xs text-muted-foreground">Loading</div>
+                          <Button variant="primary" loading className="w-full">Loading</Button>
                         </div>
                         <div className="space-y-2">
-                          <div className="text-xs text-muted-foreground">Link SM</div>
-                          <Button variant="link" size="sm" className="w-full">Button label</Button>
+                          <div className="text-xs text-muted-foreground">Loading Text</div>
+                          <Button variant="primary" loading loadingText="Saving..." className="w-full">Save</Button>
                         </div>
                         <div className="space-y-2">
-                          <div className="text-xs text-muted-foreground">Link LG</div>
-                          <Button variant="link" size="lg" className="w-full">Button label</Button>
+                          <div className="text-xs text-muted-foreground">Pressed</div>
+                          <Button variant="secondary" pressed className="w-full">Pressed</Button>
                         </div>
                         <div className="space-y-2">
-                          <div className="text-xs text-muted-foreground">Link XL</div>
-                          <Button variant="link" size="xl" className="w-full">Button label</Button>
+                          <div className="text-xs text-muted-foreground">Disabled</div>
+                          <Button variant="primary" disabled className="w-full">Disabled</Button>
                         </div>
                         <div className="space-y-2">
-                          <div className="text-xs text-muted-foreground">Link Disabled</div>
-                          <Button variant="link" disabled className="w-full">Button label</Button>
+                          <div className="text-xs text-muted-foreground">Full Width</div>
+                          <Button variant="primary" fullWidth>Full Width</Button>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Shape Variants */}
+                    <div>
+                      <h4 className="text-sm font-medium mb-4 text-muted-foreground uppercase tracking-wide">SHAPES</h4>
+                      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                        <div className="space-y-2">
+                          <div className="text-xs text-muted-foreground">Default</div>
+                          <Button variant="primary" className="w-full">Default</Button>
+                        </div>
+                        <div className="space-y-2">
+                          <div className="text-xs text-muted-foreground">Rounded</div>
+                          <Button variant="primary" shape="rounded" className="w-full">Rounded</Button>
+                        </div>
+                        <div className="space-y-2">
+                          <div className="text-xs text-muted-foreground">Square</div>
+                          <Button variant="primary" shape="square" className="w-full">Square</Button>
                         </div>
                       </div>
                     </div>
 
                     {/* Icon Variants */}
                     <div>
-                      <h4 className="text-sm font-medium mb-4 text-muted-foreground uppercase tracking-wide">WITH ICONS</h4>
-                      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                      <h4 className="text-sm font-medium mb-4 text-muted-foreground uppercase tracking-wide">ICON BUTTONS</h4>
+                      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                        <div className="space-y-2">
+                          <div className="text-xs text-muted-foreground">Icon SM</div>
+                          <Button variant="primary" size="icon-sm">
+                            <Search className="h-3 w-3" />
+                          </Button>
+                        </div>
+                        <div className="space-y-2">
+                          <div className="text-xs text-muted-foreground">Icon Default</div>
+                          <Button variant="primary" size="icon">
+                            <Search className="h-4 w-4" />
+                          </Button>
+                        </div>
+                        <div className="space-y-2">
+                          <div className="text-xs text-muted-foreground">Icon LG</div>
+                          <Button variant="primary" size="icon-lg">
+                            <Search className="h-5 w-5" />
+                          </Button>
+                        </div>
+                        <div className="space-y-2">
+                          <div className="text-xs text-muted-foreground">Rounded Icon</div>
+                          <Button variant="secondary" size="icon" shape="rounded">
+                            <Heart className="h-4 w-4" />
+                          </Button>
+                        </div>
                         <div className="space-y-2">
                           <div className="text-xs text-muted-foreground">Icon Left</div>
                           <Button variant="primary" className="w-full">
@@ -349,24 +470,6 @@ const Index = () => {
                           <Button variant="secondary" className="w-full">
                             Download
                             <Download className="ml-2 h-4 w-4" />
-                          </Button>
-                        </div>
-                        <div className="space-y-2">
-                          <div className="text-xs text-muted-foreground">Icon Only</div>
-                          <Button variant="primary" size="icon">
-                            <Search className="h-4 w-4" />
-                          </Button>
-                        </div>
-                        <div className="space-y-2">
-                          <div className="text-xs text-muted-foreground">Icon Only SM</div>
-                          <Button variant="secondary" size="icon" className="h-8 w-8">
-                            <Settings className="h-3 w-3" />
-                          </Button>
-                        </div>
-                        <div className="space-y-2">
-                          <div className="text-xs text-muted-foreground">Icon Only LG</div>
-                          <Button variant="tertiary" size="icon" className="h-12 w-12">
-                            <Heart className="h-5 w-5" />
                           </Button>
                         </div>
                       </div>
