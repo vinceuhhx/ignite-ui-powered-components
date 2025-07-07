@@ -105,7 +105,7 @@ const Index = () => {
       <footer className="footer">
         <div className="container">
           <div className="footer-content">
-            <p>&copy; 2024 SparkUI. All rights reserved.</p>
+            <p>&copy; 2025 SparkUI. All rights reserved.</p>
             <p>Powered by SD Worx</p>
           </div>
         </div>
