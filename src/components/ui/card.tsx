@@ -1,27 +1,28 @@
+
 import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const cardVariants = cva(
-  "rounded-lg border bg-card text-card-foreground",
+  "rounded-lg border bg-card text-card-foreground shadow-sm",
   {
     variants: {
       variant: {
-        default: "card border-border",
-        outlined: "card-outlined border-2",
-        elevated: "card-elevated shadow-lg",
+        default: "",
+        outlined: "border-2",
+        elevated: "shadow-md",
       },
       size: {
         default: "",
-        sm: "card-sm",
-        lg: "card-lg", 
-        xl: "card-xl",
+        sm: "text-sm",
+        lg: "text-lg", 
+        xl: "text-xl",
       },
       padding: {
         default: "",
-        none: "card-no-padding p-0",
-        sm: "card-padding-sm p-3",
-        lg: "card-padding-lg p-8",
+        none: "p-0",
+        sm: "p-3",
+        lg: "p-8",
       },
     },
     defaultVariants: {
@@ -40,20 +41,6 @@ export interface CardProps
 
 const Card = React.forwardRef<HTMLDivElement, CardProps>(
   ({ className, variant, size, padding, shadow, ...props }, ref) => {
-    // Load legacy CSS when component mounts
-    React.useEffect(() => {
-      const cssUrl = "https://cdn.sdworx.com/ignite/styling/legacy/webkit-7.6.2.css";
-      const existingLink = document.querySelector(`link[href="${cssUrl}"]`);
-      if (!existingLink) {
-        const link = document.createElement("link");
-        link.rel = "stylesheet";
-        link.href = cssUrl;
-        link.onload = () => console.log("SD Worx card styles loaded");
-        link.onerror = () => console.warn("Failed to load SD Worx card styles - using fallback styles");
-        document.head.appendChild(link);
-      }
-    }, []);
-
     return (
       <div
         ref={ref}
@@ -75,7 +62,7 @@ const CardHeader = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn("card-header flex flex-col space-y-1.5 p-6", className)}
+    className={cn("flex flex-col space-y-1.5 p-6", className)}
     {...props}
   />
 ));
@@ -87,7 +74,7 @@ const CardTitle = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <h3
     ref={ref}
-    className={cn("card-title text-2xl font-semibold leading-none tracking-tight", className)}
+    className={cn("text-2xl font-semibold leading-none tracking-tight", className)}
     {...props}
   />
 ));
@@ -99,7 +86,7 @@ const CardDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <p
     ref={ref}
-    className={cn("card-description text-sm text-muted-foreground", className)}
+    className={cn("text-sm text-muted-foreground", className)}
     {...props}
   />
 ));
@@ -111,7 +98,7 @@ const CardContent = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div 
     ref={ref} 
-    className={cn("card-body p-6 pt-0", className)} 
+    className={cn("p-6 pt-0", className)} 
     {...props} 
   />
 ));
@@ -123,7 +110,7 @@ const CardFooter = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn("card-footer flex items-center p-6 pt-0", className)}
+    className={cn("flex items-center p-6 pt-0", className)}
     {...props}
   />
 ));
