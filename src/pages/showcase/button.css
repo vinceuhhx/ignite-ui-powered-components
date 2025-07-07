@@ -1,0 +1,66 @@
+/* src/components/ShowcaseButtons.css */
+
+.showcase-section {
+  padding: 40px;
+  background: #fff;
+}
+
+.showcase-title {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.showcase-description {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 32px;
+}
+
+.showcase-group {
+  margin-bottom: 32px;
+}
+
+.group-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.buttons-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.variant-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+.variant-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.variant-label {
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.variant-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.spinner-icon {
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.icon {
+  vertical-align: middle;
+}

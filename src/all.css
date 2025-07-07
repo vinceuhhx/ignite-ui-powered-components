@@ -1,0 +1,376 @@
+.ig-btn {
+  --ig-button-filled-border: var(--ig-border-transparent);
+  --ig-button-filled-background: var(--ig-background-primary-bold);
+  --ig-button-filled-background-hover: var(--ig-background-primary-bold-hover);
+  --ig-button-filled-background-pressed: var(--ig-background-primary-bold-pressed);
+  --ig-button-filled-content: var(--ig-text-on-bold-bold);
+  --ig-button-filled-content-hover: var(--ig-text-on-bold-bold-hover);
+  --ig-button-filled-content-pressed: var(--ig-text-on-bold-bold-pressed);
+  --ig-button-outlined-border: var(--ig-border-primary-bold);
+  --ig-button-outlined-background: var(--ig-background-clear);
+  --ig-button-outlined-background-hover: var(--ig-background-clear-hover);
+  --ig-button-outlined-background-pressed: var(--ig-background-clear-pressed);
+  --ig-button-outlined-content: var(--ig-text-primary);
+  --ig-button-outlined-content-hover: var(--ig-text-primary-hover);
+  --ig-button-outlined-content-pressed: var(--ig-text-primary-pressed);
+  --ig-button-soft-border: var(--ig-border-transparent);
+  --ig-button-soft-background: var(--ig-background-transparent-subtle);
+  --ig-button-soft-background-hover: var(--ig-background-transparent-subtle-hover);
+  --ig-button-soft-background-pressed: var(--ig-background-transparent-subtle-pressed);
+  --ig-button-soft-content: var(--ig-text-bold);
+  --ig-button-soft-content-hover: var(--ig-text-bold);
+  --ig-button-soft-content-pressed: var(--ig-text-bold);
+  --ig-button-plain-border: var(--ig-border-transparent);
+  --ig-button-plain-background: var(--ig-background-transparent-clear);
+  --ig-button-plain-background-hover: var(--ig-background-transparent-clear-hover);
+  --ig-button-plain-background-pressed: var(--ig-background-transparent-clear-pressed);
+  --ig-button-plain-content: var(--ig-text-bold);
+  --ig-button-plain-content-hover: var(--ig-text-bold-hover);
+  --ig-button-plain-content-pressed: var(--ig-text-bold-pressed);
+  --ig-button-danger-filled-border: var(--ig-border-transparent);
+  --ig-button-danger-filled-background: var(--ig-background-danger-bold);
+  --ig-button-danger-filled-background-hover: var(--ig-background-danger-bold-hover);
+  --ig-button-danger-filled-background-pressed: var(--ig-background-danger-bold-pressed);
+  --ig-button-danger-filled-content: var(--ig-text-on-bold-bold);
+  --ig-button-danger-filled-content-hover: var(--ig-text-on-bold-bold-hover);
+  --ig-button-danger-filled-content-pressed: var(--ig-text-on-bold-bold-pressed);
+  --ig-button-danger-outlined-border: var(--ig-border-danger-bold);
+  --ig-button-danger-outlined-background: var(--ig-background-clear);
+  --ig-button-danger-outlined-background-hover: var(--ig-background-clear-hover);
+  --ig-button-danger-outlined-background-pressed: var(--ig-background-clear-pressed);
+  --ig-button-danger-outlined-content: var(--ig-text-danger);
+  --ig-button-danger-outlined-content-hover: var(--ig-text-danger-hover);
+  --ig-button-danger-outlined-content-pressed: var(--ig-text-danger-pressed);
+  --ig-button-danger-soft-border: var(--ig-border-transparent);
+  --ig-button-danger-soft-background: var(--ig-background-transparent-danger);
+  --ig-button-danger-soft-background-hover: var(--ig-background-transparent-danger-hover);
+  --ig-button-danger-soft-background-pressed: var(--ig-background-transparent-danger-pressed);
+  --ig-button-danger-soft-content: var(--ig-text-danger);
+  --ig-button-danger-soft-content-hover: var(--ig-text-danger-hover);
+  --ig-button-danger-soft-content-pressed: var(--ig-text-danger-pressed);
+  --ig-button-danger-plain-border: var(--ig-border-transparent);
+  --ig-button-danger-plain-background: var(--ig-background-transparent-clear);
+  --ig-button-danger-plain-background-hover: var(--ig-background-transparent-danger-hover);
+  --ig-button-danger-plain-background-pressed: var(--ig-background-transparent-danger-pressed);
+  --ig-button-danger-plain-content: var(--ig-text-danger);
+  --ig-button-danger-plain-content-hover: var(--ig-text-danger-hover);
+  --ig-button-danger-plain-content-pressed: var(--ig-text-danger-pressed);
+  --ig-button-success-filled-border: var(--ig-border-transparent);
+  --ig-button-success-filled-background: var(--ig-background-success-bold);
+  --ig-button-success-filled-background-hover: var(--ig-background-success-bold-hover);
+  --ig-button-success-filled-background-pressed: var(--ig-background-success-bold-pressed);
+  --ig-button-success-filled-content: var(--ig-text-on-bold-bold);
+  --ig-button-success-filled-content-hover: var(--ig-text-on-bold-bold-hover);
+  --ig-button-success-filled-content-pressed: var(--ig-text-on-bold-bold-pressed);
+  --ig-button-success-outlined-border: var(--ig-border-success-bold);
+  --ig-button-success-outlined-background: var(--ig-background-clear);
+  --ig-button-success-outlined-background-hover: var(--ig-background-clear-hover);
+  --ig-button-success-outlined-background-pressed: var(--ig-background-clear-pressed);
+  --ig-button-success-outlined-content: var(--ig-text-success);
+  --ig-button-success-outlined-content-hover: var(--ig-text-success-hover);
+  --ig-button-success-outlined-content-pressed: var(--ig-text-success-pressed);
+  --ig-button-success-soft-border: var(--ig-border-transparent);
+  --ig-button-success-soft-background: var(--ig-background-transparent-success);
+  --ig-button-success-soft-background-hover: var(--ig-background-transparent-success-hover);
+  --ig-button-success-soft-background-pressed: var(--ig-background-transparent-success-pressed);
+  --ig-button-success-soft-content: var(--ig-text-success);
+  --ig-button-success-soft-content-hover: var(--ig-text-success-hover);
+  --ig-button-success-soft-content-pressed: var(--ig-text-success-pressed);
+  --ig-button-success-plain-border: var(--ig-border-transparent);
+  --ig-button-success-plain-background: var(--ig-background-transparent-clear);
+  --ig-button-success-plain-background-hover: var(--ig-background-transparent-success-hover);
+  --ig-button-success-plain-background-pressed: var(--ig-background-transparent-success-pressed);
+  --ig-button-success-plain-content: var(--ig-text-success);
+  --ig-button-success-plain-content-hover: var(--ig-text-success-hover);
+  --ig-button-success-plain-content-pressed: var(--ig-text-success-pressed);
+  --ig-button-group-border: var(--ig-border-medium);
+  --ig-btn-font: var(--ig-typography-body-medium-medium);
+  --ig-btn-padding-x: var(--ig-component-input-medium-horizontal-padding);
+  --ig-btn-padding-y: var(--ig-component-input-medium-vertical-padding);
+  --ig-btn-gap: var(--ig-component-input-medium-gap);
+  --ig-btn-icon-size: var(--ig-line-height-body);
+  --ig-btn-box-shadow: var(--ig-elevation-level-1);
+  --ig-btn-bg: var(--ig-button-soft-background);
+  --ig-btn-border: var(--ig-button-soft-border);
+  --ig-btn-color: var(--ig-button-soft-content);
+  white-space: nowrap;
+  user-select: none;
+  color: var(--ig-btn-color);
+  background-color: var(--ig-btn-bg);
+  border: var(--ig-border-width) solid var(--ig-btn-border);
+  border-radius: var(--ig-border-radius-input);
+  box-shadow: var(--ig-btn-box-shadow);
+  padding: var(--ig-btn-padding-y) var(--ig-btn-padding-x);
+  gap: var(--ig-btn-gap);
+  font: var(--ig-btn-font);
+  display: inline-flex;
+}
+
+.ig-btn:hover:enabled {
+  --ig-btn-bg: var(--ig-button-soft-background-hover);
+  --ig-btn-color: var(--ig-button-soft-content-hover);
+}
+
+.ig-btn:active:enabled {
+  --ig-btn-bg: var(--ig-button-soft-background-pressed);
+  --ig-btn-color: var(--ig-button-soft-content-pressed);
+}
+
+.ig-btn * {
+  pointer-events: none;
+}
+
+.ig-btn i {
+  font-size: var(--ig-btn-icon-size);
+  line-height: 0;
+}
+
+.ig-btn:has(i:only-child) {
+  padding: var(--ig-btn-padding-y);
+}
+
+.ig-btn[disabled] {
+  opacity: var(--ig-opacity-disabled);
+  cursor: not-allowed;
+}
+
+.ig-btn.ig-btn--filled {
+  --ig-btn-bg: var(--ig-button-filled-background);
+  --ig-btn-border: var(--ig-button-filled-border);
+  --ig-btn-color: var(--ig-button-filled-content);
+}
+
+.ig-btn.ig-btn--filled:hover:enabled {
+  --ig-btn-bg: var(--ig-button-filled-background-hover);
+  --ig-btn-color: var(--ig-button-filled-content-hover);
+  --ig-btn-box-shadow: var(--ig-elevation-level-2);
+}
+
+.ig-btn.ig-btn--filled:active:enabled {
+  --ig-btn-bg: var(--ig-button-filled-background-pressed);
+  --ig-btn-color: var(--ig-button-filled-content-pressed);
+  --ig-btn-box-shadow: var(--ig-elevation-inset);
+}
+
+.ig-btn.ig-btn--outlined {
+  --ig-btn-bg: var(--ig-button-outlined-background);
+  --ig-btn-border: var(--ig-button-outlined-border);
+  --ig-btn-color: var(--ig-button-outlined-content);
+}
+
+.ig-btn.ig-btn--outlined:hover:enabled {
+  --ig-btn-bg: var(--ig-button-outlined-background-hover);
+  --ig-btn-color: var(--ig-button-outlined-content-hover);
+  --ig-btn-box-shadow: var(--ig-elevation-level-2);
+}
+
+.ig-btn.ig-btn--outlined:active:enabled {
+  --ig-btn-bg: var(--ig-button-outlined-background-pressed);
+  --ig-btn-color: var(--ig-button-outlined-content-pressed);
+  --ig-btn-box-shadow: var(--ig-elevation-inset);
+}
+
+.ig-btn.ig-btn--soft {
+  --ig-btn-bg: var(--ig-button-soft-background);
+  --ig-btn-border: var(--ig-button-soft-border);
+  --ig-btn-color: var(--ig-button-soft-content);
+}
+
+.ig-btn.ig-btn--soft:hover:enabled {
+  --ig-btn-bg: var(--ig-button-soft-background-hover);
+  --ig-btn-color: var(--ig-button-soft-content-hover);
+  --ig-btn-box-shadow: var(--ig-elevation-level-2);
+}
+
+.ig-btn.ig-btn--soft:active:enabled {
+  --ig-btn-bg: var(--ig-button-soft-background-pressed);
+  --ig-btn-color: var(--ig-button-soft-content-pressed);
+  --ig-btn-box-shadow: var(--ig-elevation-inset);
+}
+
+.ig-btn.ig-btn--plain {
+  --ig-btn-bg: var(--ig-button-plain-background);
+  --ig-btn-border: var(--ig-button-plain-border);
+  --ig-btn-color: var(--ig-button-plain-content);
+  --ig-btn-box-shadow: none;
+}
+
+.ig-btn.ig-btn--plain:hover:enabled {
+  --ig-btn-bg: var(--ig-button-plain-background-hover);
+  --ig-btn-color: var(--ig-button-plain-content-hover);
+  --ig-btn-box-shadow: none;
+}
+
+.ig-btn.ig-btn--plain:active:enabled {
+  --ig-btn-bg: var(--ig-button-plain-background-pressed);
+  --ig-btn-color: var(--ig-button-plain-content-pressed);
+  --ig-btn-box-shadow: var(--ig-elevation-inset);
+}
+
+.ig-btn.ig-btn--danger-filled {
+  --ig-btn-bg: var(--ig-button-danger-filled-background);
+  --ig-btn-border: var(--ig-button-danger-filled-border);
+  --ig-btn-color: var(--ig-button-danger-filled-content);
+}
+
+.ig-btn.ig-btn--danger-filled:hover:enabled {
+  --ig-btn-bg: var(--ig-button-danger-filled-background-hover);
+  --ig-btn-color: var(--ig-button-danger-filled-content-hover);
+  --ig-btn-box-shadow: var(--ig-elevation-level-2);
+}
+
+.ig-btn.ig-btn--danger-filled:active:enabled {
+  --ig-btn-bg: var(--ig-button-danger-filled-background-pressed);
+  --ig-btn-color: var(--ig-button-danger-filled-content-pressed);
+  --ig-btn-box-shadow: var(--ig-elevation-inset);
+}
+
+.ig-btn.ig-btn--danger-outlined {
+  --ig-btn-bg: var(--ig-button-danger-outlined-background);
+  --ig-btn-border: var(--ig-button-danger-outlined-border);
+  --ig-btn-color: var(--ig-button-danger-outlined-content);
+}
+
+.ig-btn.ig-btn--danger-outlined:hover:enabled {
+  --ig-btn-bg: var(--ig-button-danger-outlined-background-hover);
+  --ig-btn-color: var(--ig-button-danger-outlined-content-hover);
+  --ig-btn-box-shadow: var(--ig-elevation-level-2);
+}
+
+.ig-btn.ig-btn--danger-outlined:active:enabled {
+  --ig-btn-bg: var(--ig-button-danger-outlined-background-pressed);
+  --ig-btn-color: var(--ig-button-danger-outlined-content-pressed);
+  --ig-btn-box-shadow: var(--ig-elevation-inset);
+}
+
+.ig-btn.ig-btn--danger-soft {
+  --ig-btn-bg: var(--ig-button-danger-soft-background);
+  --ig-btn-border: var(--ig-button-danger-soft-border);
+  --ig-btn-color: var(--ig-button-danger-soft-content);
+}
+
+.ig-btn.ig-btn--danger-soft:hover:enabled {
+  --ig-btn-bg: var(--ig-button-danger-soft-background-hover);
+  --ig-btn-color: var(--ig-button-danger-soft-content-hover);
+  --ig-btn-box-shadow: var(--ig-elevation-level-2);
+}
+
+.ig-btn.ig-btn--danger-soft:active:enabled {
+  --ig-btn-bg: var(--ig-button-danger-soft-background-pressed);
+  --ig-btn-color: var(--ig-button-danger-soft-content-pressed);
+  --ig-btn-box-shadow: var(--ig-elevation-inset);
+}
+
+.ig-btn.ig-btn--danger-plain {
+  --ig-btn-bg: var(--ig-button-danger-plain-background);
+  --ig-btn-border: var(--ig-button-danger-plain-border);
+  --ig-btn-color: var(--ig-button-danger-plain-content);
+  --ig-btn-box-shadow: none;
+}
+
+.ig-btn.ig-btn--danger-plain:hover:enabled {
+  --ig-btn-bg: var(--ig-button-danger-plain-background-hover);
+  --ig-btn-color: var(--ig-button-danger-plain-content-hover);
+  --ig-btn-box-shadow: none;
+}
+
+.ig-btn.ig-btn--danger-plain:active:enabled {
+  --ig-btn-bg: var(--ig-button-danger-plain-background-pressed);
+  --ig-btn-color: var(--ig-button-danger-plain-content-pressed);
+  --ig-btn-box-shadow: var(--ig-elevation-inset);
+}
+
+.ig-btn.ig-btn--success-filled {
+  --ig-btn-bg: var(--ig-button-success-filled-background);
+  --ig-btn-border: var(--ig-button-success-filled-border);
+  --ig-btn-color: var(--ig-button-success-filled-content);
+}
+
+.ig-btn.ig-btn--success-filled:hover:enabled {
+  --ig-btn-bg: var(--ig-button-success-filled-background-hover);
+  --ig-btn-color: var(--ig-button-success-filled-content-hover);
+  --ig-btn-box-shadow: var(--ig-elevation-level-2);
+}
+
+.ig-btn.ig-btn--success-filled:active:enabled {
+  --ig-btn-bg: var(--ig-button-success-filled-background-pressed);
+  --ig-btn-color: var(--ig-button-success-filled-content-pressed);
+  --ig-btn-box-shadow: var(--ig-elevation-inset);
+}
+
+.ig-btn.ig-btn--success-outlined {
+  --ig-btn-bg: var(--ig-button-success-outlined-background);
+  --ig-btn-border: var(--ig-button-success-outlined-border);
+  --ig-btn-color: var(--ig-button-success-outlined-content);
+}
+
+.ig-btn.ig-btn--success-outlined:hover:enabled {
+  --ig-btn-bg: var(--ig-button-success-outlined-background-hover);
+  --ig-btn-color: var(--ig-button-success-outlined-content-hover);
+  --ig-btn-box-shadow: var(--ig-elevation-level-2);
+}
+
+.ig-btn.ig-btn--success-outlined:active:enabled {
+  --ig-btn-bg: var(--ig-button-success-outlined-background-pressed);
+  --ig-btn-color: var(--ig-button-success-outlined-content-pressed);
+  --ig-btn-box-shadow: var(--ig-elevation-inset);
+}
+
+.ig-btn.ig-btn--success-soft {
+  --ig-btn-bg: var(--ig-button-success-soft-background);
+  --ig-btn-border: var(--ig-button-success-soft-border);
+  --ig-btn-color: var(--ig-button-success-soft-content);
+}
+
+.ig-btn.ig-btn--success-soft:hover:enabled {
+  --ig-btn-bg: var(--ig-button-success-soft-background-hover);
+  --ig-btn-color: var(--ig-button-success-soft-content-hover);
+  --ig-btn-box-shadow: var(--ig-elevation-level-2);
+}
+
+.ig-btn.ig-btn--success-soft:active:enabled {
+  --ig-btn-bg: var(--ig-button-success-soft-background-pressed);
+  --ig-btn-color: var(--ig-button-success-soft-content-pressed);
+  --ig-btn-box-shadow: var(--ig-elevation-inset);
+}
+
+.ig-btn.ig-btn--success-plain {
+  --ig-btn-bg: var(--ig-button-success-plain-background);
+  --ig-btn-border: var(--ig-button-success-plain-border);
+  --ig-btn-color: var(--ig-button-success-plain-content);
+  --ig-btn-box-shadow: none;
+}
+
+.ig-btn.ig-btn--success-plain:hover:enabled {
+  --ig-btn-bg: var(--ig-button-success-plain-background-hover);
+  --ig-btn-color: var(--ig-button-success-plain-content-hover);
+  --ig-btn-box-shadow: none;
+}
+
+.ig-btn.ig-btn--success-plain:active:enabled {
+  --ig-btn-bg: var(--ig-button-success-plain-background-pressed);
+  --ig-btn-color: var(--ig-button-success-plain-content-pressed);
+  --ig-btn-box-shadow: var(--ig-elevation-inset);
+}
+
+.ig-btn.ig-btn--sm {
+  --ig-btn-font: var(--ig-typography-body-small-medium);
+  --ig-btn-padding-x: var(--ig-component-input-small-horizontal-padding);
+  --ig-btn-padding-y: var(--ig-component-input-small-vertical-padding);
+  --ig-btn-gap: var(--ig-component-input-small-gap);
+  --ig-btn-icon-size: var(--ig-line-height-body-small);
+}
+
+.ig-btn.ig-btn--lg {
+  --ig-btn-font: var(--ig-typography-body-large-medium);
+  --ig-btn-padding-x: var(--ig-component-input-large-horizontal-padding);
+  --ig-btn-padding-y: var(--ig-component-input-large-vertical-padding);
+  --ig-btn-gap: var(--ig-component-input-large-gap);
+  --ig-btn-icon-size: var(--ig-line-height-body-large);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .ig-btn {
+    transition: background-color var(--ig-transition-duration), color var(--ig-transition-duration), box-shadow var(--ig-transition-duration);
+  }
+}

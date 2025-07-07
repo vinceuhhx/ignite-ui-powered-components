@@ -1,97 +1,108 @@
+// src/components/ui/button.tsx
 import * as React from "react"
 import { Slot } from "@radix-ui/react-slot"
 import { cva, type VariantProps } from "class-variance-authority"
 import { Loader2 } from "lucide-react"
 
-const buttonVariants = cva("btn", {
+const buttonVariants = cva("ig-btn", {
   variants: {
     variant: {
-      default: "btn-primary",
-      primary: "btn-primary",
-      secondary: "btn-secondary",
-      tertiary: "btn-tertiary",
-      danger: "btn-danger",
-      destructive: "btn-danger",
-      success: "btn-success",
-      warning: "btn-warning",
-      info: "btn-info",
-      outline: "btn-outline",
-      ghost: "btn-ghost",
-      link: "btn-link",
+      filled: "",
+      outlined: "",
+      soft: "",
+      plain: "",
+    },
+    color: {
+      primary: "",
+      danger: "",
+      success: "",
     },
     size: {
-      xs: "btn-xs",
-      sm: "btn-sm",
-      default: "",
-      lg: "btn-lg",
-      xl: "btn-xl",
-      "2xl": "btn-2xl",
-      icon: "btn-icon",
-      "icon-sm": "btn-icon-sm",
-      "icon-lg": "btn-icon-lg",
-    },
-    shape: {
-      default: "",
-      rounded: "btn-rounded",
-      square: "btn-square",
-    },
-    fullWidth: {
-      true: "btn-fullwidth",
-      false: "",
+      sm: "ig-btn--sm",
+      md: "",
+      lg: "ig-btn--lg",
+      icon: "ig-btn--icon",
     },
   },
+  compoundVariants: [
+    { variant: "filled",  color: "primary", class: "ig-btn--filled" },
+    { variant: "outlined", color: "primary", class: "ig-btn--outlined" },
+    { variant: "soft",     color: "primary", class: "ig-btn--soft" },
+    { variant: "plain",    color: "primary", class: "ig-btn--plain" },
+
+    { variant: "filled",  color: "danger", class: "ig-btn--danger-filled" },
+    { variant: "outlined", color: "danger", class: "ig-btn--danger-outlined" },
+    { variant: "soft",     color: "danger", class: "ig-btn--danger-soft" },
+    { variant: "plain",    color: "danger", class: "ig-btn--danger-plain" },
+
+    { variant: "filled",  color: "success", class: "ig-btn--success-filled" },
+    { variant: "outlined", color: "success", class: "ig-btn--success-outlined" },
+    { variant: "soft",     color: "success", class: "ig-btn--success-soft" },
+    { variant: "plain",    color: "success", class: "ig-btn--success-plain" },
+  ],
   defaultVariants: {
-    variant: "default",
-    size: "default",
-    shape: "default",
-    fullWidth: false,
+    variant: "filled",
+    color: "primary",
+    size: "md",
   },
 })
 
 export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+  extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "color">,
     VariantProps<typeof buttonVariants> {
   asChild?: boolean
   loading?: boolean
-  pressed?: boolean
   loadingText?: string
 }
 
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, shape, fullWidth, asChild = false, loading = false, pressed = false, loadingText, children, disabled, ...props }, ref) => {
-    const Comp = asChild ? Slot : "button"
-    
-    // Load base CSS when component mounts
+export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  (
+    {
+      asChild = false,
+      loading = false,
+      loadingText,
+      variant,
+      color,
+      size,
+      className,
+      children,
+      disabled,
+      ...props
+    },
+    ref
+  ) => {
+    // Inject Ignite CSS
     React.useEffect(() => {
-      const cssUrl = "https://cdn.sdworx.com/ignite/styling/legacy/webkit-7.6.2.css";
-      const existingLink = document.querySelector(`link[href="${cssUrl}"]`);
-      if (!existingLink) {
-        const link = document.createElement("link");
-        link.rel = "stylesheet";
-        link.href = cssUrl;
-        document.head.appendChild(link);
-      }
-    }, []);
+      ;[
+        "https://cdn.sdworx.com/ignite/styling/v0/0.0.1/website/all.css",
+      ].forEach((href) => {
+        if (!document.querySelector(`link[href="${href}"]`)) {
+          const link = document.createElement("link")
+          link.rel = "stylesheet"
+          link.href = href
+          document.head.appendChild(link)
+        }
+      })
+    }, [])
 
-    const baseClasses = buttonVariants({ variant, size, shape, fullWidth });
-    const pressedClass = pressed ? "btn-pressed" : "";
-    const loadingClass = loading ? "btn-loading" : "";
-    const finalClassName = [baseClasses, pressedClass, loadingClass, className].filter(Boolean).join(" ");
-    
+    const Comp = asChild ? Slot : "button"
+
+    const variantClasses = buttonVariants({ variant, color, size })
+    const classes = [variantClasses, className].filter(Boolean).join(" ")
+
     return (
       <Comp
-        className={finalClassName}
         ref={ref}
+        className={classes}
         disabled={disabled || loading}
-        aria-pressed={pressed}
+        aria-busy={loading}
         {...props}
       >
-        {loading && <Loader2 className="loader-icon" />}
-        {loading && loadingText ? loadingText : children}
+        {loading && <Loader2 className="ig-btn__icon" />}
+        {loading ? (loadingText ?? children) : children}
       </Comp>
     )
   }
 )
-Button.displayName = "Button"
 
-export { Button, buttonVariants }
+Button.displayName = "Button"
