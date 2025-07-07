@@ -3,35 +3,32 @@ import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
-const cardVariants = cva(
-  "rounded-lg border bg-card text-card-foreground shadow-sm",
-  {
-    variants: {
-      variant: {
-        default: "",
-        outlined: "border-2",
-        elevated: "shadow-md",
-      },
-      size: {
-        default: "",
-        sm: "text-sm",
-        lg: "text-lg", 
-        xl: "text-xl",
-      },
-      padding: {
-        default: "",
-        none: "p-0",
-        sm: "p-3",
-        lg: "p-8",
-      },
+const cardVariants = cva("card", {
+  variants: {
+    variant: {
+      default: "",
+      outlined: "card-outlined",
+      elevated: "card-elevated",
     },
-    defaultVariants: {
-      variant: "default",
-      size: "default", 
-      padding: "default",
+    size: {
+      default: "",
+      sm: "card-sm",
+      lg: "card-lg",
+      xl: "card-xl",
     },
-  }
-);
+    padding: {
+      default: "",
+      none: "card-no-padding",
+      sm: "card-padding-sm",
+      lg: "card-padding-lg",
+    },
+  },
+  defaultVariants: {
+    variant: "default",
+    size: "default",
+    padding: "default",
+  },
+});
 
 export interface CardProps
   extends React.HTMLAttributes<HTMLDivElement>,
@@ -41,12 +38,24 @@ export interface CardProps
 
 const Card = React.forwardRef<HTMLDivElement, CardProps>(
   ({ className, variant, size, padding, shadow, ...props }, ref) => {
+    // Load base CSS when component mounts
+    React.useEffect(() => {
+      const cssUrl = "https://cdn.sdworx.com/ignite/styling/legacy/webkit-7.6.2.css";
+      const existingLink = document.querySelector(`link[href="${cssUrl}"]`);
+      if (!existingLink) {
+        const link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.href = cssUrl;
+        document.head.appendChild(link);
+      }
+    }, []);
+
     return (
       <div
         ref={ref}
         className={cn(
           cardVariants({ variant, size, padding }),
-          shadow && "shadow-lg",
+          shadow && "shadow",
           className
         )}
         {...props}
@@ -62,7 +71,7 @@ const CardHeader = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn("flex flex-col space-y-1.5 p-6", className)}
+    className={cn("card-header", className)}
     {...props}
   />
 ));
@@ -74,7 +83,7 @@ const CardTitle = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <h3
     ref={ref}
-    className={cn("text-2xl font-semibold leading-none tracking-tight", className)}
+    className={cn("card-title", className)}
     {...props}
   />
 ));
@@ -86,7 +95,7 @@ const CardDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <p
     ref={ref}
-    className={cn("text-sm text-muted-foreground", className)}
+    className={cn("card-description", className)}
     {...props}
   />
 ));
@@ -98,7 +107,7 @@ const CardContent = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div 
     ref={ref} 
-    className={cn("p-6 pt-0", className)} 
+    className={cn("card-body", className)} 
     {...props} 
   />
 ));
@@ -110,7 +119,7 @@ const CardFooter = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn("flex items-center p-6 pt-0", className)}
+    className={cn("card-footer", className)}
     {...props}
   />
 ));
