@@ -2,9 +2,14 @@
 
 .showcase-section {
   padding: 40px;
-  background: #fff;
 }
-
+/* Make <pre class="code"> white in dark mode */
+[data-theme="dark"] .code {
+  color: #fff;
+}
+[data-theme="light"] .code {
+  color: #fff;
+}
 .showcase-title {
   font-size: 32px;
   font-weight: bold;

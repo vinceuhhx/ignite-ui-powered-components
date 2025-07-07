@@ -40,3 +40,37 @@
 .read-the-docs {
   color: #888;
 }
+
+
+
+/* Floating switcher container */
+.theme-switcher {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1000;
+}
+
+/* Basic button styling (using your IG variables) */
+.theme-switcher button {
+  background-color: var(--ig-background-transparent-subtlest);
+  border: var(--ig-border-width) solid var(--ig-border);
+  color: var(--ig-text-bold);
+  padding: 0.5rem 1rem;
+  border-radius: var(--ig-border-radius);
+  cursor: pointer;
+  font: var(--ig-typography-body-small-regular);
+}
+
+.theme-switcher button:hover {
+  background-color: var(--ig-background-transparent-subtlest-hover);
+}
+
+[data-theme="dark"] .theme-switcher button {
+  background-color: var(--ig-background-transparent-subtler);
+  color: var(--ig-text-bold-inverse);
+}
+
+[data-theme="dark"] .theme-switcher button:hover {
+  background-color: var(--ig-background-transparent-subtler-hover);
+}

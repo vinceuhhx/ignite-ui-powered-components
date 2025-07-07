@@ -69,9 +69,7 @@ const Index = () => {
                 <p>Install the SparkUI component library</p>
                 <div className="code-block">
                   <code className="code">npm install @sdworx/sparkui</code>
-                  <Button variant="plain" size="icon" className="copy-button" onClick={() => copyToClipboard("npm install @sdworx/sparkui") }>
-                    <Copy className="copy-icon" />
-                  </Button>
+                 
                 </div>
               </div>
 
@@ -80,9 +78,6 @@ const Index = () => {
                 <p>Import and use the button component in your React app</p>
                 <div className="code-block">
                   <code className="code">{`import { Button } from '@sdworx/sparkui`}</code>
-                  <Button variant="plain" size="icon" className="copy-button" onClick={() => copyToClipboard("import { Button } from '@sdworx/sparkui") }>
-                    <Copy className="copy-icon" />
-                  </Button>
                 </div>
               </div>
             </div>
