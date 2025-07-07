@@ -1,7 +1,6 @@
 
 import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
-import { cn } from "@/lib/utils";
 
 const cardVariants = cva("card", {
   variants: {
@@ -50,14 +49,14 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
       }
     }, []);
 
+    const baseClasses = cardVariants({ variant, size, padding });
+    const shadowClass = shadow ? "shadow" : "";
+    const finalClassName = [baseClasses, shadowClass, className].filter(Boolean).join(" ");
+
     return (
       <div
         ref={ref}
-        className={cn(
-          cardVariants({ variant, size, padding }),
-          shadow && "shadow",
-          className
-        )}
+        className={finalClassName}
         {...props}
       />
     );
@@ -71,7 +70,7 @@ const CardHeader = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn("card-header", className)}
+    className={["card-header", className].filter(Boolean).join(" ")}
     {...props}
   />
 ));
@@ -83,7 +82,7 @@ const CardTitle = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <h3
     ref={ref}
-    className={cn("card-title", className)}
+    className={["card-title", className].filter(Boolean).join(" ")}
     {...props}
   />
 ));
@@ -95,7 +94,7 @@ const CardDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <p
     ref={ref}
-    className={cn("card-description", className)}
+    className={["card-description", className].filter(Boolean).join(" ")}
     {...props}
   />
 ));
@@ -107,7 +106,7 @@ const CardContent = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div 
     ref={ref} 
-    className={cn("card-body", className)} 
+    className={["card-body", className].filter(Boolean).join(" ")}
     {...props} 
   />
 ));
@@ -119,7 +118,7 @@ const CardFooter = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn("card-footer", className)}
+    className={["card-footer", className].filter(Boolean).join(" ")}
     {...props}
   />
 ));
