@@ -1,11 +1,12 @@
 
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import {ShowcaseButtons} from "@/pages/showcase/button"
-import {ShowcaseTabs} from "@/pages/showcase/tabs"
+import { ShowcaseButtons } from "@/pages/showcase/button"
+import { ShowcaseTabs } from "@/pages/showcase/tabs"
 import { Sidebar } from "@/components/Sidebar"
 import { Copy, ExternalLink, Github, Package, Download } from "lucide-react"
 import { ShowcaseBadges } from "@/pages/showcase/badge"
+import { ShowcaseTypography } from "./showcase/typography"
 const Index = () => {
   const [activeSection, setActiveSection] = useState('button');
 
@@ -51,7 +52,7 @@ const Index = () => {
 
       <div className="layout-with-sidebar">
         {/* Sidebar */}
-         <Sidebar
+        <Sidebar
           activeSection={activeSection}
           onSectionChange={scrollToSection}
           sections={[
@@ -141,7 +142,7 @@ const Index = () => {
             </div>
           </section>
 
-            <section id="badge" className="section">
+          <section id="badge" className="section">
             <div className="container">
               <div className="section-content">
                 <h2 className="section-title">Badge Showcase</h2>
@@ -152,7 +153,17 @@ const Index = () => {
               </div>
             </div>
           </section>
-
+          <section id="typography" className="section">
+            <div className="container">
+              <div className="section-content">
+                <h2 className="section-title">Typography Showcase</h2>
+                <p className="section-description">
+                  Complete typography system with headings, body text, weights, colors, alignment, and text treatments using CDN tokens.
+                </p>
+                <ShowcaseTypography />
+              </div>
+            </div>
+          </section>
 
           {/* Footer */}
           <footer className="footer">
