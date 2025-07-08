@@ -71,19 +71,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     },
     ref
   ) => {
-    // Inject Ignite CSS
-    React.useEffect(() => {
-      ;[
-        "https://cdn.sdworx.com/ignite/styling/v0/0.0.1/website/all.css",
-      ].forEach((href) => {
-        if (!document.querySelector(`link[href="${href}"]`)) {
-          const link = document.createElement("link")
-          link.rel = "stylesheet"
-          link.href = href
-          document.head.appendChild(link)
-        }
-      })
-    }, [])
+
 
     const Comp = asChild ? Slot : "button"
 
