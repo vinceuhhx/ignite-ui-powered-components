@@ -1,27 +1,26 @@
-# File: .github/workflows/mirror-to-sparkui.yml
-name: Mirror to SDWorx sparkui repo
+# .github/workflows/mirror-to-sparkui.yml
+name: Mirror to SDWorx sparkui
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
 
 jobs:
   mirror:
-    name: 🚀 Mirror main → SDWorx
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout full history
+      - name: Checkout all history, disable default creds
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0        # grab all branches & tags
+          fetch-depth: 0
+          persist-credentials: false    # 🚨 critical: so checkout won’t override our PAT
 
       - name: Configure mirror remote
         run: |
           git remote add sparkui \
             https://x-access-token:${{ secrets.SDWORX_TOKEN }}@github.com/SDWorx/sparkui-component-library.git
 
-      - name: Push branches and tags
+      - name: Push branches and tags to sparkui
         run: |
-          git push sparkui --all    # mirror every branch
-          git push sparkui --tags   # mirror all tags
+          git push sparkui --all
+          git push sparkui --tags
