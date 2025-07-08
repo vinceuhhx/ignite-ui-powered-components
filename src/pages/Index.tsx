@@ -1,18 +1,13 @@
 
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import {ShowcaseButtons} from "@/pages/showcase/button"
-import {ShowcaseTabs} from "@/pages/showcase/tabs"
+import { ShowcaseButtons } from "@/pages/showcase/button"
+import { ShowcaseTabs } from "@/pages/showcase/tabs"
 import { Sidebar } from "@/components/Sidebar"
 import { Copy, ExternalLink, Github, Package, Download } from "lucide-react"
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState('button');
-
-  const copyToClipboard = (text: string) => {
-    navigator.clipboard.writeText(text)
-    alert("Copied to clipboard!")
-  }
 
   const scrollToSection = (sectionId: string) => {
     setActiveSection(sectionId);
@@ -23,125 +18,127 @@ const Index = () => {
   };
 
   return (
-    <div className="main-container">
+    <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="header">
-        <div className="container">
-          <div className="header-content">
-            <div className="header-brand">
-              <a className="brand-link" href="/">
-                <Package className="brand-icon" />
-                <span className="brand-text">SparkUI Component Library</span>
-              </a>
-            </div>
-            <div className="header-nav">
-              <nav className="nav">
-                <button onClick={() => scrollToSection('button')} className="nav-link">Button</button>
-                <button onClick={() => scrollToSection('tabs')} className="nav-link">Tabs</button>
-                <button onClick={() => scrollToSection('installation')} className="nav-link">Installation</button>
-              </nav>
-              <div className="header-actions">
-                <Button variant="plain" size="icon"><Github className="icon" /></Button>
-                <Button variant="plain" size="icon"><ExternalLink className="icon" /></Button>
+      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <div className="container flex h-14 items-center">
+          <div className="mr-4 hidden md:flex">
+            <a className="mr-6 flex items-center space-x-2" href="/">
+              <Package className="h-6 w-6" />
+              <span className="hidden font-bold sm:inline-block">SparkUI</span>
+            </a>
+            <nav className="flex items-center space-x-6 text-sm font-medium">
+              <button onClick={() => scrollToSection('button')} className="transition-colors hover:text-foreground/80 text-foreground/60">
+                Button
+              </button>
+              <button onClick={() => scrollToSection('tabs')} className="transition-colors hover:text-foreground/80 text-foreground/60">
+                Tabs
+              </button>
+              <button onClick={() => scrollToSection('installation')} className="transition-colors hover:text-foreground/80 text-foreground/60">
+                Installation
+              </button>
+            </nav>
+          </div>
+          <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
+            <div className="w-full flex-1 md:w-auto md:flex-none">
+              <div className="hidden lg:flex">
+                <Button variant="outline" size="sm">
+                  <Github className="mr-2 h-4 w-4" />
+                  GitHub
+                </Button>
               </div>
             </div>
           </div>
         </div>
       </header>
 
-      <div className="layout-with-sidebar">
-        {/* Sidebar */}
-        <Sidebar activeSection={activeSection} onSectionChange={setActiveSection} />
+      <div className="border-b">
+        <div className="container flex-1 items-start md:grid md:grid-cols-[220px_minmax(0,1fr)] md:gap-6 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-10">
+          {/* Sidebar */}
+          <aside className="fixed top-14 z-30 -ml-2 hidden h-[calc(100vh-3.5rem)] w-full shrink-0 md:sticky md:block">
+            <Sidebar activeSection={activeSection} onSectionChange={setActiveSection} />
+          </aside>
 
-        {/* Main Content */}
-        <main className="main-content">
-          {/* Hero Section */}
-          <section className="hero-section">
-            <div className="container">
-              <div className="hero-content">
-                <h1 className="hero-title">
-                  Professional React components with <span className="hero-highlight">SparkUI Design System</span>
+          {/* Main Content */}
+          <main className="relative py-6 lg:gap-10 lg:py-8 xl:grid xl:grid-cols-[1fr_300px]">
+            <div className="mx-auto w-full min-w-0">
+              {/* Hero Section */}
+              <div className="mb-4 flex items-center space-x-1 text-sm text-muted-foreground">
+                <div className="overflow-hidden text-ellipsis whitespace-nowrap">Components</div>
+              </div>
+              <div className="space-y-2">
+                <h1 className="scroll-m-20 text-4xl font-bold tracking-tight">
+                  SparkUI Components
                 </h1>
-                <p className="hero-description">
-                  A comprehensive component library built with modern design principles. Consistent, accessible, and ready for production use.
+                <p className="text-lg text-muted-foreground">
+                  Beautifully designed components built with Radix UI and CDN styling. Copy and paste into your apps.
                 </p>
               </div>
-              <div className="hero-actions">
-                <Button size="lg" color="primary" variant="filled">
-                  <Download className="button-icon" /> Get Started
-                </Button>
-              </div>
-            </div>
-          </section>
 
-          <div className="separator" />
-
-          {/* Installation Section */}
-          <section id="installation" className="section">
-            <div className="container">
-              <div className="section-content">
-                <h2 className="section-title">Installation</h2>
-                <div className="installation-cards">
-                  <div className="install-card">
-                    <h3>Install Package</h3>
-                    <p>Install the SparkUI component library</p>
-                    <div className="code-block">
-                      <code className="code">npm install @sdworx/sparkui</code>
+              <div className="pb-12 pt-8">
+                {/* Installation Section */}
+                <section id="installation" className="space-y-6">
+                  <div className="space-y-3">
+                    <h2 className="font-heading mt-12 scroll-m-20 border-b pb-2 text-2xl font-semibold tracking-tight first:mt-0">
+                      Installation
+                    </h2>
+                    <p className="text-muted-foreground">
+                      Install and configure SparkUI components in your project.
+                    </p>
+                  </div>
+                  <div className="space-y-4">
+                    <div className="space-y-4">
+                      <p className="text-sm text-muted-foreground">Install the package</p>
+                      <div className="relative">
+                        <pre className="mb-4 mt-6 overflow-x-auto rounded-lg border bg-muted px-4 py-4">
+                          <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm">
+                            npm install @sdworx/sparkui
+                          </code>
+                        </pre>
+                      </div>
+                    </div>
+                    <div className="space-y-4">
+                      <p className="text-sm text-muted-foreground">Import and use components</p>
+                      <div className="relative">
+                        <pre className="mb-4 mt-6 overflow-x-auto rounded-lg border bg-muted px-4 py-4">
+                          <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm">
+                            {`import { Button } from '@sdworx/sparkui'`}
+                          </code>
+                        </pre>
+                      </div>
                     </div>
                   </div>
+                </section>
 
-                  <div className="install-card">
-                    <h3>Import Component</h3>
-                    <p>Import and use the button component in your React app</p>
-                    <div className="code-block">
-                      <code className="code">{`import { Button } from '@sdworx/sparkui'`}</code>
-                    </div>
+                {/* Button Section */}
+                <section id="button" className="space-y-6">
+                  <div className="space-y-3">
+                    <h2 className="font-heading mt-12 scroll-m-20 border-b pb-2 text-2xl font-semibold tracking-tight first:mt-0">
+                      Button
+                    </h2>
+                    <p className="text-muted-foreground">
+                      Displays a button or a component that looks like a button.
+                    </p>
                   </div>
-                </div>
+                  <ShowcaseButtons />
+                </section>
+
+                {/* Tabs Section */}
+                <section id="tabs" className="space-y-6">
+                  <div className="space-y-3">
+                    <h2 className="font-heading mt-12 scroll-m-20 border-b pb-2 text-2xl font-semibold tracking-tight first:mt-0">
+                      Tabs
+                    </h2>
+                    <p className="text-muted-foreground">
+                      A set of layered sections of content—known as tab panels—that are displayed one at a time.
+                    </p>
+                  </div>
+                  <ShowcaseTabs />
+                </section>
               </div>
             </div>
-          </section>
-
-          <div className="separator" />
-
-          {/* Button Showcase Section */}
-          <section id="button" className="section">
-            <div className="container">
-              <div className="section-content">
-                <h2 className="section-title">Button Showcase</h2>
-                <p className="section-description">
-                  Full set of button variants, colors, sizes, loading states, and icon-only buttons.
-                </p>
-                <ShowcaseButtons />
-              </div>
-            </div>
-          </section>
-
-          <div className="separator" />
-
-          {/* Tabs Showcase Section */}
-          <section id="tabs" className="section">
-            <div className="container">
-              <div className="section-content">
-                <h2 className="section-title">Tabs Showcase</h2>
-                <p className="section-description">
-                  Complete set of tab variants with horizontal/vertical orientations, sizes, icons, and validation states.
-                </p>
-                <ShowcaseTabs />
-              </div>
-            </div>
-          </section>
-
-          {/* Footer */}
-          <footer className="footer">
-            <div className="container">
-              <div className="footer-content">
-                <p>&copy; 2025 SparkUI. All rights reserved.</p>
-                <p>Powered by SD Worx</p>
-              </div>
-            </div>
-          </footer>
-        </main>
+          </main>
+        </div>
       </div>
     </div>
   )

@@ -1,13 +1,14 @@
 
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
+import { Copy, Check } from 'lucide-react';
 
 interface CodeBlockProps {
   code: string;
   language?: string;
 }
 
-export const CodeBlock: React.FC<CodeBlockProps> = ({ code, language = 'jsx' }) => {
+export const CodeBlock: React.FC<CodeBlockProps> = ({ code, language = 'tsx' }) => {
   const [copied, setCopied] = useState(false);
 
   const copyToClipboard = () => {
@@ -17,23 +18,25 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({ code, language = 'jsx' }) 
   };
 
   return (
-    <div className="code-container">
-      <div className="code-header">
-        <span className="code-language">{language}</span>
-        <Button 
-          variant="plain" 
-          size="sm" 
-          onClick={copyToClipboard}
-          className="copy-button"
-        >
-          {copied ? 'Copied!' : 'Copy'}
-        </Button>
-      </div>
-      <div className="code-content">
-        <pre>
-          <code>{code}</code>
-        </pre>
-      </div>
+    <div className="relative">
+      <pre className="max-h-[650px] overflow-x-auto rounded-lg bg-muted p-4">
+        <code className="relative rounded bg-transparent px-[0.3rem] py-[0.2rem] font-mono text-sm text-muted-foreground">
+          {code}
+        </code>
+      </pre>
+      <Button
+        variant="outline"
+        size="icon"
+        className="absolute right-4 top-4 h-8 w-8"
+        onClick={copyToClipboard}
+      >
+        {copied ? (
+          <Check className="h-3 w-3" />
+        ) : (
+          <Copy className="h-3 w-3" />
+        )}
+        <span className="sr-only">Copy</span>
+      </Button>
     </div>
   );
 };

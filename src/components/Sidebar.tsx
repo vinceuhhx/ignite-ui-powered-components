@@ -8,47 +8,103 @@ interface SidebarProps {
 
 export const Sidebar = ({ activeSection, onSectionChange }: SidebarProps) => {
   const sections = [
-    { id: 'button', title: 'Button', subsections: ['Variants', 'Sizes', 'States', 'Icons'] },
-    { id: 'tabs', title: 'Tabs', subsections: ['Horizontal', 'Vertical', 'Validation', 'Icons'] },
-    { id: 'installation', title: 'Installation', subsections: [] }
+    { 
+      id: 'installation', 
+      title: 'Installation', 
+      subsections: [] 
+    },
+    { 
+      id: 'button', 
+      title: 'Button', 
+      subsections: [
+        { id: 'variants', title: 'Variants' },
+        { id: 'sizes', title: 'Sizes' },
+        { id: 'colors', title: 'Colors' },
+        { id: 'loading', title: 'Loading States' }
+      ] 
+    },
+    { 
+      id: 'tabs', 
+      title: 'Tabs', 
+      subsections: [
+        { id: 'horizontal', title: 'Horizontal' },
+        { id: 'vertical', title: 'Vertical' },
+        { id: 'sizes', title: 'Sizes' },
+        { id: 'validation', title: 'Validation' }
+      ] 
+    }
   ];
 
+  const scrollToElement = (elementId: string) => {
+    const element = document.getElementById(elementId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
-    <aside className="sidebar">
-      <div className="sidebar-content">
-        <h3 className="sidebar-title">SparkUI Components</h3>
-        <nav className="sidebar-nav">
-          {sections.map((section) => (
-            <div key={section.id} className="sidebar-section">
+    <div className="w-full">
+      <div className="pb-4">
+        <h4 className="mb-1 rounded-md px-2 py-1 text-sm font-semibold">
+          Getting Started
+        </h4>
+        <div className="grid grid-flow-row auto-rows-max text-sm">
+          <button
+            className={`group flex w-full items-center rounded-md border border-transparent px-2 py-1 hover:underline ${
+              activeSection === 'installation' 
+                ? 'font-medium text-foreground' 
+                : 'text-muted-foreground'
+            }`}
+            onClick={() => {
+              onSectionChange('installation');
+              scrollToElement('installation');
+            }}
+          >
+            Installation
+          </button>
+        </div>
+      </div>
+      
+      <div className="pb-4">
+        <h4 className="mb-1 rounded-md px-2 py-1 text-sm font-semibold">
+          Components
+        </h4>
+        <div className="grid grid-flow-row auto-rows-max text-sm">
+          {sections.filter(s => s.id !== 'installation').map((section) => (
+            <div key={section.id}>
               <button
-                className={`sidebar-item ${activeSection === section.id ? 'active' : ''}`}
-                onClick={() => onSectionChange(section.id)}
+                className={`group flex w-full items-center rounded-md border border-transparent px-2 py-1 hover:underline ${
+                  activeSection === section.id 
+                    ? 'font-medium text-foreground' 
+                    : 'text-muted-foreground'
+                }`}
+                onClick={() => {
+                  onSectionChange(section.id);
+                  scrollToElement(section.id);
+                }}
               >
                 {section.title}
               </button>
-              {section.subsections.length > 0 && (
-                <div className="sidebar-subsections">
+              {section.subsections.length > 0 && activeSection === section.id && (
+                <div className="ml-4 grid grid-flow-row auto-rows-max text-sm">
                   {section.subsections.map((subsection) => (
                     <button
-                      key={subsection}
-                      className="sidebar-subitem"
+                      key={subsection.id}
+                      className="group flex w-full items-center rounded-md border border-transparent px-2 py-1 text-muted-foreground hover:underline"
                       onClick={() => {
-                        onSectionChange(section.id);
-                        const element = document.getElementById(`${section.id}-${subsection.toLowerCase()}`);
-                        if (element) {
-                          element.scrollIntoView({ behavior: 'smooth' });
-                        }
+                        const elementId = `${section.id}-${subsection.id}`;
+                        scrollToElement(elementId);
                       }}
                     >
-                      {subsection}
+                      {subsection.title}
                     </button>
                   ))}
                 </div>
               )}
             </div>
           ))}
-        </nav>
+        </div>
       </div>
-    </aside>
+    </div>
   );
 };
