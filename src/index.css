@@ -543,3 +543,92 @@
     padding: 0.5rem 1rem;
   }
 }
+
+
+/* Showcase container */
+.showcase-section {
+  padding: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Titles & descriptions */
+.showcase-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.showcase-description {
+  margin-bottom: 1.5rem;
+  color: #555;
+  line-height: 1.4;
+}
+
+/* Grouping */
+.showcase-group {
+  margin-bottom: 2rem;
+}
+
+.group-title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+
+/* Rows of tags/badges */
+.badges-row,
+.componentpreview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Utility spacing if you still use .d-flex, .gap, .mb */
+.d-flex { display: flex; }
+.gap  { gap: 0.5rem; }
+.mb   { margin-bottom: 1rem; }
+
+/* Avatar + badge */
+.avatar {
+  position: relative;
+  display: inline-block;
+}
+
+.avatar img {
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.avatar-badge {
+  position: absolute;
+  bottom: -4px;
+  right: -4px;
+}
+
+/* Skeleton placeholders */
+.badge-skeleton {
+  width: 2.5rem;
+  height: 1.25rem;
+  background-color: #e2e2e2;
+  border-radius: 0.25rem;
+}
+
+/* If you rendered the Angular-style skeleton list */
+.ig-toc--skeleton ul {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.ig-toc--skeleton span {
+  display: block;
+  width: 2.5rem;
+  height: 1.25rem;
+  background: #e2e2e2;
+  border-radius: 0.25rem;
+}

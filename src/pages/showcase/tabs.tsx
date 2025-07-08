@@ -82,13 +82,13 @@ export const ShowcaseTabs = () => {
         code={`<Tabs defaultValue="active" orientation="horizontal" size="md">
   <TabsList>
     <TabsTrigger value="active">
-      <i className="ig-icon-o-circled"></i> Active
+      <i className="icons8-o-circled"></i> Active
     </TabsTrigger>
     <TabsTrigger value="inactive">
-      <i className="ig-icon-o-circled"></i> Inactive
+      <i className="icons8-o-circled"></i> Inactive
     </TabsTrigger>
     <TabsTrigger value="disabled" disabled>
-      <i className="ig-icon-o-circled"></i> Disabled
+      <i className="icons8-o-circled"></i> Disabled
     </TabsTrigger>
   </TabsList>
   <TabsContent value="active">
@@ -99,13 +99,13 @@ export const ShowcaseTabs = () => {
         <Tabs defaultValue="active" orientation="horizontal" size="md">
           <TabsList>
             <TabsTrigger value="active">
-              <i className="ig-icon-o-circled"></i> Active
+              <i className="icons8-o-circled"></i> Active
             </TabsTrigger>
             <TabsTrigger value="inactive">
-              <i className="ig-icon-o-circled"></i> Inactive
+              <i className="icons8-o-circled"></i> Inactive
             </TabsTrigger>
             <TabsTrigger value="disabled" disabled>
-              <i className="ig-icon-o-circled"></i> Disabled
+              <i className="icons8-o-circled"></i> Disabled
             </TabsTrigger>
           </TabsList>
           <TabsContent value="active">
@@ -158,10 +158,10 @@ export const ShowcaseTabs = () => {
         code={`<Tabs defaultValue="active" orientation="horizontal" size="md">
   <TabsList>
     <TabsTrigger value="active" validation="danger">
-      Active (danger) <i className="ig-icon-f-box-important"></i>
+      Active (danger) <i className="icons8-f-box-important"></i>
     </TabsTrigger>
     <TabsTrigger value="inactive" validation="danger">
-      Inactive (danger) <i className="ig-icon-f-box-important"></i>
+      Inactive (danger) <i className="icons8-f-box-important"></i>
     </TabsTrigger>
   </TabsList>
   <TabsContent value="active">
@@ -172,10 +172,10 @@ export const ShowcaseTabs = () => {
         <Tabs defaultValue="active" orientation="horizontal" size="md">
           <TabsList>
             <TabsTrigger value="active" validation="danger">
-              Active (danger) <i className="ig-icon-f-box-important"></i>
+              Active (danger) <i className="icons8-f-box-important"></i>
             </TabsTrigger>
             <TabsTrigger value="inactive" validation="danger">
-              Inactive (danger) <i className="ig-icon-f-box-important"></i>
+              Inactive (danger) <i className="icons8-f-box-important"></i>
             </TabsTrigger>
           </TabsList>
           <TabsContent value="active">
@@ -193,10 +193,10 @@ export const ShowcaseTabs = () => {
         code={`<Tabs defaultValue="active" orientation="horizontal" size="md">
   <TabsList>
     <TabsTrigger value="active" validation="warning">
-      Active (warning) <i className="ig-icon-f-error"></i>
+      Active (warning) <i className="icons8-f-error"></i>
     </TabsTrigger>
     <TabsTrigger value="inactive" validation="warning">
-      Inactive (warning) <i className="ig-icon-f-error"></i>
+      Inactive (warning) <i className="icons8-f-error"></i>
     </TabsTrigger>
   </TabsList>
   <TabsContent value="active">
@@ -207,10 +207,10 @@ export const ShowcaseTabs = () => {
         <Tabs defaultValue="active" orientation="horizontal" size="md">
           <TabsList>
             <TabsTrigger value="active" validation="warning">
-              Active (warning) <i className="ig-icon-f-error"></i>
+              Active (warning) <i className="icons8-f-error"></i>
             </TabsTrigger>
             <TabsTrigger value="inactive" validation="warning">
-              Inactive (warning) <i className="ig-icon-f-error"></i>
+              Inactive (warning) <i className="icons8-f-error"></i>
             </TabsTrigger>
           </TabsList>
           <TabsContent value="active">

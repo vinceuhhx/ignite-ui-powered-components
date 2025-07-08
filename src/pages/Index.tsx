@@ -5,7 +5,7 @@ import {ShowcaseButtons} from "@/pages/showcase/button"
 import {ShowcaseTabs} from "@/pages/showcase/tabs"
 import { Sidebar } from "@/components/Sidebar"
 import { Copy, ExternalLink, Github, Package, Download } from "lucide-react"
-
+import { ShowcaseBadges } from "@/pages/showcase/badge"
 const Index = () => {
   const [activeSection, setActiveSection] = useState('button');
 
@@ -51,7 +51,16 @@ const Index = () => {
 
       <div className="layout-with-sidebar">
         {/* Sidebar */}
-        <Sidebar activeSection={activeSection} onSectionChange={setActiveSection} />
+         <Sidebar
+          activeSection={activeSection}
+          onSectionChange={scrollToSection}
+          sections={[
+            { id: "installation", label: "Installation" },
+            { id: "button", label: "Button" },
+            { id: "tabs", label: "Tabs" },
+            { id: "badge", label: "Badge" },
+          ]}
+        />
 
         {/* Main Content */}
         <main className="main-content">
@@ -131,6 +140,19 @@ const Index = () => {
               </div>
             </div>
           </section>
+
+            <section id="badge" className="section">
+            <div className="container">
+              <div className="section-content">
+                <h2 className="section-title">Badge Showcase</h2>
+                <p className="section-description">
+                  All badge variants, icons, numeric badges, link‐badges, avatar overlays & skeletons.
+                </p>
+                <ShowcaseBadges />
+              </div>
+            </div>
+          </section>
+
 
           {/* Footer */}
           <footer className="footer">
