@@ -2,6 +2,7 @@
 import { useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import {ShowcaseButtons} from "@/pages/showcase/button"
+import {ShowcaseTabs} from "@/pages/showcase/tabs"
 import { Copy, ExternalLink, Github, Package, Download } from "lucide-react"
 
 const Index = () => {
@@ -25,6 +26,7 @@ const Index = () => {
             <div className="header-nav">
               <nav className="nav">
                 <a href="#button" className="nav-link">Button</a>
+                <a href="#tabs" className="nav-link">Tabs</a>
                 <a href="#installation" className="nav-link">Installation</a>
               </nav>
               <div className="header-actions">
@@ -97,6 +99,22 @@ const Index = () => {
             </p>
             {/* Call the reusable ShowcaseButtons component */}
             <ShowcaseButtons />
+          </div>
+        </div>
+      </section>
+
+      <div className="separator" />
+
+      {/* Tabs Showcase Section */}
+      <section id="tabs" className="section">
+        <div className="container">
+          <div className="section-content">
+            <h2 className="section-title">Tabs Showcase</h2>
+            <p className="section-description">
+              Complete set of tab variants with horizontal/vertical orientations, sizes, icons, and validation states.
+            </p>
+            {/* Call the reusable ShowcaseTabs component */}
+            <ShowcaseTabs />
           </div>
         </div>
       </section>
