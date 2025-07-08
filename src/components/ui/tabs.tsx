@@ -52,6 +52,7 @@ function TabsTrigger({
     <TabsPrimitive.Trigger
       disabled={disabled}
       className={`ig-tab ${disabledClass} ${validationClass} ${className}`.trim()}
+      data-state-active="ig-tab--active"
       {...props}
     />
   )
