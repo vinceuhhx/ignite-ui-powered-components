@@ -83,3 +83,7 @@ export function getAllComponents(): ComponentInfo[] {
 export function getComponentNames(): string[] {
   return Object.keys(COMPONENT_REGISTRY);
 }
+
+export function getComponentRegistry(): Record<string, ComponentInfo> {
+  return COMPONENT_REGISTRY;
+}
