@@ -10,7 +10,7 @@ export const COMPONENT_REGISTRY: Record<string, ComponentInfo> = {
   button: {
     name: "button",
     description: "A customizable button component with multiple variants and states",
-    dependencies: ["@radix-ui/react-slot", "class-variance-authority", "lucide-react"],
+    dependencies: ["@radix-ui/react-slot", "class-variance-authority"],
     files: ["button.tsx"],
     registryDependencies: []
   },
@@ -92,21 +92,24 @@ const COMPONENT_TEMPLATES: Record<string, string> = {
   button: `import * as React from "react"
 import { Slot } from "@radix-ui/react-slot"
 import { cva, type VariantProps } from "class-variance-authority"
-import { cn } from "@/lib/utils"
+
+function cn(...inputs: any[]) {
+  return inputs.filter(Boolean).join(' ')
+}
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+  "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
-        filled: "bg-primary text-primary-foreground hover:bg-primary/90",
-        outlined: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
-        soft: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        plain: "hover:bg-accent hover:text-accent-foreground",
+        filled: "bg-blue-600 text-white hover:bg-blue-700",
+        outlined: "border border-gray-300 bg-white hover:bg-gray-50",
+        soft: "bg-gray-100 text-gray-900 hover:bg-gray-200",
+        plain: "hover:bg-gray-100",
       },
       color: {
         primary: "",
-        danger: "text-destructive hover:text-destructive",
+        danger: "text-red-600 hover:text-red-700",
         success: "text-green-600 hover:text-green-700",
       },
       size: {
@@ -136,7 +139,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     const Comp = asChild ? Slot : "button"
     return (
       <Comp
-        className={cn(buttonVariants({ variant, color, size, className }))}
+        className={cn(buttonVariants({ variant, color, size }), className)}
         ref={ref}
         disabled={disabled || loading}
         {...props}

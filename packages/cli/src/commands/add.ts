@@ -3,6 +3,7 @@ import path from 'path';
 import chalk from 'chalk';
 import ora from 'ora';
 import prompts from 'prompts';
+import { execSync } from 'child_process';
 import { getComponentRegistry, type ComponentInfo, getComponentTemplate } from '../utils/registry.js';
 
 interface AddOptions {
@@ -67,6 +68,32 @@ export async function addCommand(componentNames: string[] = [], options: AddOpti
       return;
     }
     
+    // Install dependencies for all components
+    const allDependencies = new Set<string>();
+    componentsToAdd.forEach(component => {
+      component.dependencies.forEach(dep => allDependencies.add(dep));
+    });
+    
+    if (allDependencies.size > 0) {
+      spinner.text = 'Installing dependencies...';
+      try {
+        const packageManager = fs.existsSync('package-lock.json') ? 'npm' : 
+                             fs.existsSync('yarn.lock') ? 'yarn' : 
+                             fs.existsSync('pnpm-lock.yaml') ? 'pnpm' : 'npm';
+        
+        const installCmd = packageManager === 'yarn' ? 
+          `yarn add ${Array.from(allDependencies).join(' ')}` :
+          packageManager === 'pnpm' ?
+          `pnpm add ${Array.from(allDependencies).join(' ')}` :
+          `npm install ${Array.from(allDependencies).join(' ')}`;
+          
+        execSync(installCmd, { stdio: 'inherit' });
+      } catch (error) {
+        console.warn(chalk.yellow('Failed to install dependencies automatically. Please install manually:'));
+        console.log(chalk.blue(`npm install ${Array.from(allDependencies).join(' ')}`));
+      }
+    }
+
     for (const component of componentsToAdd) {
       // Get component template and write to file
       const componentTemplate = getComponentTemplate(component.name);
