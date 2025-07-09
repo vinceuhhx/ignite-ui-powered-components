@@ -76,7 +76,9 @@ export async function addCommand(componentNames: string[] = [], options: AddOpti
         await fs.writeFile(targetFile, componentTemplate, 'utf8');
         spinner.text = `Added ${component.name}`;
       } else {
-        console.warn(chalk.yellow(`Warning: Template for ${component.name} not found.`));
+        spinner.fail(`Template for ${component.name} not found.`);
+        console.error(chalk.red(`Available templates: ${Object.keys(getComponentTemplate.templates || {}).join(', ')}`));
+        return;
       }
     }
     

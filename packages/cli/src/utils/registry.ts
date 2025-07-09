@@ -610,5 +610,13 @@ export { Typography, typographyVariants }`
 };
 
 export function getComponentTemplate(name: string): string | undefined {
-  return COMPONENT_TEMPLATES[name];
+  const template = COMPONENT_TEMPLATES[name];
+  if (!template) {
+    console.error(`Template not found for: ${name}`);
+    console.error(`Available templates:`, Object.keys(COMPONENT_TEMPLATES));
+  }
+  return template;
 }
+
+// Export templates for debugging
+getComponentTemplate.templates = COMPONENT_TEMPLATES;
