@@ -3,7 +3,7 @@ import path from 'path';
 import chalk from 'chalk';
 import ora from 'ora';
 import prompts from 'prompts';
-import { getComponentRegistry, type ComponentInfo } from '../utils/registry.js';
+import { getComponentRegistry, type ComponentInfo, getComponentTemplate } from '../utils/registry.js';
 
 interface AddOptions {
   all?: boolean;
@@ -68,15 +68,15 @@ export async function addCommand(componentNames: string[] = [], options: AddOpti
     }
     
     for (const component of componentsToAdd) {
-      // Copy component file
-      const sourceFile = path.join(__dirname, '../../components', `${component.name}.tsx`);
+      // Get component template and write to file
+      const componentTemplate = getComponentTemplate(component.name);
       const targetFile = path.join(componentsDir, `${component.name}.tsx`);
       
-      if (fs.existsSync(sourceFile)) {
-        await fs.copy(sourceFile, targetFile);
+      if (componentTemplate) {
+        await fs.writeFile(targetFile, componentTemplate, 'utf8');
         spinner.text = `Added ${component.name}`;
       } else {
-        console.warn(chalk.yellow(`Warning: Component file for ${component.name} not found.`));
+        console.warn(chalk.yellow(`Warning: Template for ${component.name} not found.`));
       }
     }
     
