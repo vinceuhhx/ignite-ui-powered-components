@@ -100,7 +100,11 @@ export async function addCommand(componentNames: string[] = [], options: AddOpti
       const targetFile = path.join(componentsDir, `${component.name}.tsx`);
       
       if (componentTemplate) {
-        await fs.writeFile(targetFile, componentTemplate, 'utf8');
+        // Add version header comment
+        const versionComment = `// SparkUI Component: ${component.name} v${component.version}\n`;
+        const finalContent = versionComment + componentTemplate;
+        
+        await fs.writeFile(targetFile, finalContent, 'utf8');
         spinner.text = `Added ${component.name}`;
       } else {
         spinner.fail(`Template for ${component.name} not found.`);

@@ -4,6 +4,7 @@ export interface ComponentInfo {
   dependencies: string[];
   files: string[];
   registryDependencies?: string[];
+  version: string;
 }
 
 export const COMPONENT_REGISTRY: Record<string, ComponentInfo> = {
@@ -12,63 +13,72 @@ export const COMPONENT_REGISTRY: Record<string, ComponentInfo> = {
     description: "A customizable button component with multiple variants and states",
     dependencies: ["@radix-ui/react-slot", "class-variance-authority"],
     files: ["button.tsx"],
-    registryDependencies: []
+    registryDependencies: [],
+    version: "1.0.0"
   },
   tabs: {
     name: "tabs",
     description: "Accessible tabs component with keyboard navigation",
     dependencies: ["@radix-ui/react-tabs"],
     files: ["tabs.tsx"],
-    registryDependencies: []
+    registryDependencies: [],
+    version: "1.0.0"
   },
   card: {
     name: "card",
     description: "Flexible card container with header, content, and footer sections",
     dependencies: ["class-variance-authority"],
     files: ["card.tsx"],
-    registryDependencies: []
+    registryDependencies: [],
+    version: "1.0.0"
   },
   badge: {
     name: "badge",
     description: "Small status indicator with various color variants",
     dependencies: ["@radix-ui/react-slot"],
     files: ["badge.tsx"],
-    registryDependencies: []
+    registryDependencies: [],
+    version: "1.0.0"
   },
   banner: {
     name: "banner",
     description: "Alert banner component for notifications and messages",
     dependencies: ["@radix-ui/react-slot"],
     files: ["banner.tsx"],
-    registryDependencies: []
+    registryDependencies: [],
+    version: "1.0.0"
   },
   body: {
     name: "body",
     description: "Typography component for body text with size and color variants",
     dependencies: ["@radix-ui/react-slot"],
     files: ["body.tsx"],
-    registryDependencies: []
+    registryDependencies: [],
+    version: "1.0.0"
   },
   typography: {
     name: "typography",
     description: "Heading typography component with semantic levels",
     dependencies: ["@radix-ui/react-slot"],
     files: ["typography.tsx"],
-    registryDependencies: []
+    registryDependencies: [],
+    version: "1.0.0"
   },
   "code-block": {
     name: "code-block",
     description: "Code display component with syntax highlighting and copy functionality",
     dependencies: ["@radix-ui/react-slot"],
     files: ["code-block.tsx"],
-    registryDependencies: ["button"]
+    registryDependencies: ["button"],
+    version: "1.0.0"
   },
   "component-showcase": {
     name: "component-showcase",
     description: "Component documentation showcase with examples",
     dependencies: [],
     files: ["component-showcase.tsx"],
-    registryDependencies: ["card", "code-block"]
+    registryDependencies: ["card", "code-block"],
+    version: "1.0.0"
   }
 };
 
