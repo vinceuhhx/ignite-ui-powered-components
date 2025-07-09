@@ -25,27 +25,12 @@ export async function initCommand(options: InitOptions = {}) {
     // Inject CDN links into HTML
     await injectCDNLinks();
     
-    // Create utils directory and cn helper
-    const utilsDir = path.join(process.cwd(), 'src', 'lib');
-    await fs.ensureDir(utilsDir);
-    
-    const cnUtilContent = `import { type ClassValue, clsx } from "clsx";
-import { twMerge } from "tailwind-merge";
-
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
-}
-`;
-    
-    await fs.writeFile(path.join(utilsDir, 'utils.ts'), cnUtilContent);
-    
     spinner.succeed('SparkUI initialized successfully!');
     
     console.log('\n' + chalk.green('✨ SparkUI is ready to use!'));
     console.log('\nNext steps:');
     console.log(chalk.blue('  sparkui add button card tabs'));
     console.log(chalk.blue('  sparkui list'));
-    console.log('\nCDN links have been automatically added to your HTML file.');
     
   } catch (error) {
     spinner.fail('Failed to initialize SparkUI');

@@ -8,13 +8,41 @@ const CDN_LINKS = [
 ];
 
 export async function injectCDNLinks() {
+  // Detect project type
+  const isNextJS = await fs.pathExists(path.join(process.cwd(), 'next.config.js')) || 
+                   await fs.pathExists(path.join(process.cwd(), 'next.config.mjs')) ||
+                   await fs.pathExists(path.join(process.cwd(), 'next.config.ts'));
+  
+  const isVite = await fs.pathExists(path.join(process.cwd(), 'vite.config.js')) ||
+                 await fs.pathExists(path.join(process.cwd(), 'vite.config.ts'));
+
+  let htmlFile: string | null = null;
+  
+  if (isNextJS) {
+    // For Next.js, check for app/layout.tsx or pages/_document.tsx
+    const appLayout = path.join(process.cwd(), 'app', 'layout.tsx');
+    const pagesDocument = path.join(process.cwd(), 'pages', '_document.tsx');
+    
+    if (await fs.pathExists(appLayout)) {
+      console.log(chalk.blue('Next.js App Router detected. Please manually add CDN links to app/layout.tsx:'));
+      CDN_LINKS.forEach(link => console.log(chalk.gray(`  ${link}`)));
+      return;
+    } else if (await fs.pathExists(pagesDocument)) {
+      console.log(chalk.blue('Next.js Pages Router detected. Please manually add CDN links to pages/_document.tsx:'));
+      CDN_LINKS.forEach(link => console.log(chalk.gray(`  ${link}`)));
+      return;
+    } else {
+      console.warn(chalk.yellow('Next.js detected but no layout/document file found.'));
+      return;
+    }
+  }
+  
+  // For Vite/React, look for HTML files
   const possibleHtmlFiles = [
     path.join(process.cwd(), 'index.html'),
     path.join(process.cwd(), 'public', 'index.html'),
     path.join(process.cwd(), 'src', 'index.html')
   ];
-  
-  let htmlFile: string | null = null;
   
   // Find the HTML file
   for (const file of possibleHtmlFiles) {
