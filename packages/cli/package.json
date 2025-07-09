@@ -1,0 +1,36 @@
+{
+  "name": "@sdworx/sparkuicli",
+  "version": "1.0.0",
+  "description": "CLI for SparkUI component library by SD Worx",
+  "main": "dist/index.js",
+  "bin": {
+    "sparkui": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs --dts",
+    "dev": "tsup src/index.ts --format cjs --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": ["react", "components", "ui", "sdworx", "sparkui"],
+  "author": "SD Worx",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^11.0.0",
+    "chalk": "^4.1.2",
+    "fs-extra": "^11.1.1",
+    "ora": "^5.4.1",
+    "prompts": "^2.4.2",
+    "node-fetch": "^2.6.7"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.1",
+    "@types/node": "^20.0.0",
+    "@types/prompts": "^2.4.4",
+    "tsup": "^7.2.0",
+    "typescript": "^5.0.0"
+  },
+  "files": [
+    "dist",
+    "components"
+  ]
+}

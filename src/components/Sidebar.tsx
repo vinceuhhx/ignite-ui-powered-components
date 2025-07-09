@@ -4,6 +4,7 @@ import React from 'react';
 interface SidebarProps {
   activeSection: string;
   onSectionChange: (section: string) => void;
+  sections?: { id: string; label: string; }[];
 }
 
 export const Sidebar = ({ activeSection, onSectionChange }: SidebarProps) => {
