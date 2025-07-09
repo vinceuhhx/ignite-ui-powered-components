@@ -42,7 +42,7 @@ const Index = () => {
           <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
             <div className="w-full flex-1 md:w-auto md:flex-none">
               <div className="hidden lg:flex">
-                <Button variant="outline" size="sm">
+                <Button variant="outlined" size="sm">
                   <Github className="mr-2 h-4 w-4" />
                   GitHub
                 </Button>

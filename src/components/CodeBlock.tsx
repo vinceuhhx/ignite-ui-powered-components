@@ -25,7 +25,7 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({ code, language = 'tsx' }) 
         </code>
       </pre>
       <Button
-        variant="outline"
+        variant="outlined"
         size="icon"
         className="absolute right-4 top-4 h-8 w-8"
         onClick={copyToClipboard}
