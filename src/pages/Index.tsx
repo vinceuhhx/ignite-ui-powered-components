@@ -1,5 +1,5 @@
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { ShowcaseButtons } from "@/pages/showcase/button"
 import { ShowcaseTabs } from "@/pages/showcase/tabs"
@@ -13,6 +13,31 @@ const Index = () => {
   const [activeSection, setActiveSection] = useState('introduction');
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [copied, setCopied] = useState(false);
+
+  // Close sidebar when clicking outside on mobile
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Element;
+      if (sidebarOpen && !target.closest('.docs-sidebar') && !target.closest('.mobile-menu-btn')) {
+        setSidebarOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [sidebarOpen]);
+
+  // Close sidebar on escape key
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape' && sidebarOpen) {
+        setSidebarOpen(false);
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [sidebarOpen]);
 
   const copyInstallCommand = () => {
     navigator.clipboard.writeText('npm install @sdworx/sparkui')
@@ -167,6 +192,18 @@ const Index = () => {
               description="All button variants, sizes, and states"
               code={`<Button variant="filled" color="primary">
   Click me
+</Button>
+
+<Button variant="outlined" color="success">
+  Success Button
+</Button>
+
+<Button variant="soft" size="lg">
+  Large Soft Button
+</Button>
+
+<Button loading>
+  Loading...
 </Button>`}
             >
               <ShowcaseButtons />
@@ -187,9 +224,16 @@ const Index = () => {
               description="Various tab configurations and styles"
               code={`<Tabs defaultValue="tab1">
   <TabsList>
-    <TabsTrigger value="tab1">Tab 1</TabsTrigger>
-    <TabsTrigger value="tab2">Tab 2</TabsTrigger>
+    <TabsTrigger value="tab1">Overview</TabsTrigger>
+    <TabsTrigger value="tab2">Details</TabsTrigger>
+    <TabsTrigger value="tab3">Settings</TabsTrigger>
   </TabsList>
+  <TabsContent value="tab1">
+    <p>Overview content goes here</p>
+  </TabsContent>
+  <TabsContent value="tab2">
+    <p>Details content goes here</p>
+  </TabsContent>
 </Tabs>`}
             >
               <ShowcaseTabs />
@@ -208,9 +252,18 @@ const Index = () => {
             <ComponentShowcase
               title="Badge Examples"
               description="All badge variants and configurations"
-              code={`<Badge variant="success">
-  New
-</Badge>`}
+              code={`<Badge variant="success">New</Badge>
+<Badge variant="warning">Beta</Badge>
+<Badge variant="danger">Deprecated</Badge>
+<Badge variant="info">Info</Badge>
+
+{/* With icons */}
+<Badge variant="success" icon="check">
+  Verified
+</Badge>
+
+{/* Numeric badges */}
+<Badge variant="accent-01">99+</Badge>`}
             >
               <ShowcaseBadges />
             </ComponentShowcase>
@@ -228,9 +281,18 @@ const Index = () => {
             <ComponentShowcase
               title="Typography Examples"
               description="Complete typography system"
-              code={`<Typography variant="h1">
-  Heading Text
-</Typography>`}
+              code={`<Typography variant="h1">Main Heading</Typography>
+<Typography variant="h2">Section Heading</Typography>
+<Typography variant="body-large">
+  Large body text for important content
+</Typography>
+<Typography variant="body-small" color="subtle">
+  Small text for less important content
+</Typography>
+
+{/* With different weights */}
+<Typography weight="bold">Bold text</Typography>
+<Typography weight="medium">Medium text</Typography>`}
             >
               <ShowcaseTypography />
             </ComponentShowcase>
