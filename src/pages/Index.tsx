@@ -145,9 +145,9 @@ const Index = () => {
             <div className="installation-steps">
               <div className="step-card">
                 <div className="step-number">1</div>
-                <h3>Install the package</h3>
+                <h3>Initialize SparkUI</h3>
                 <div className="code-snippet">
-                  <code>npm install @sdworx/sparkui</code>
+                  <code>npx @sdworx/sparkui init</code>
                   <button className="snippet-copy">
                     <Copy className="copy-icon" />
                   </button>
@@ -156,9 +156,9 @@ const Index = () => {
               
               <div className="step-card">
                 <div className="step-number">2</div>
-                <h3>Import components</h3>
+                <h3>Add the provider</h3>
                 <div className="code-snippet">
-                  <code>import {`{ Button }`} from '@sdworx/sparkui'</code>
+                  <code>import {`{ SparkUIProvider }`} from '@/components/ui/provider'</code>
                   <button className="snippet-copy">
                     <Copy className="copy-icon" />
                   </button>
@@ -167,9 +167,9 @@ const Index = () => {
               
               <div className="step-card">
                 <div className="step-number">3</div>
-                <h3>Start building</h3>
+                <h3>Add components</h3>
                 <div className="code-snippet">
-                  <code>&lt;Button variant="filled"&gt;Hello World&lt;/Button&gt;</code>
+                  <code>npx @sdworx/sparkui add button card tabs</code>
                   <button className="snippet-copy">
                     <Copy className="copy-icon" />
                   </button>
