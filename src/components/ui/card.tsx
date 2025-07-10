@@ -37,18 +37,6 @@ export interface CardProps
 
 const Card = React.forwardRef<HTMLDivElement, CardProps>(
   ({ className, variant, size, padding, shadow, ...props }, ref) => {
-    // Load base CSS when component mounts
-    React.useEffect(() => {
-      const cssUrl = "https://cdn.sdworx.com/ignite/styling/legacy/webkit-7.6.2.css";
-      const existingLink = document.querySelector(`link[href="${cssUrl}"]`);
-      if (!existingLink) {
-        const link = document.createElement("link");
-        link.rel = "stylesheet";
-        link.href = cssUrl;
-        document.head.appendChild(link);
-      }
-    }, []);
-
     const baseClasses = cardVariants({ variant, size, padding });
     const shadowClass = shadow ? "shadow" : "";
     const finalClassName = [baseClasses, shadowClass, className].filter(Boolean).join(" ");
